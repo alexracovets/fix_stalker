@@ -3,6 +3,8 @@
 import { CollectionSlug, getPayload, SanitizedConfig, Where, Config } from 'payload'
 import config from '@payload-config'
 
+import { type Locale } from '@constants'
+
 interface getCollectionItemProps {
   collection: CollectionSlug
   slug?: string
@@ -10,7 +12,7 @@ interface getCollectionItemProps {
   slug_name?: boolean
   type?: boolean
   id?: number
-  locale?: 'uk' | 'en'
+  locale?: Locale
 }
 
 export async function getCollectionItem({

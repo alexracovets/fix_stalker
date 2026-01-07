@@ -1,15 +1,15 @@
-import { MainPage } from '@payload-types'
 import { Metadata } from 'next'
 
-import { TemplateMainPage } from '@templates'
+import { Section } from '@payload-types'
 
 import { getCollection, getCollectionItem } from '@api'
 import { type Locale, LOCALES } from '@constants'
+import { TemplateSectionPage } from '@templates'
 import { generateMeta } from '@utils'
 
 type PageProps = {
   params: Promise<{
-    main_pages: string
+    sections_pages: string
     locale: Locale
   }>
 }
@@ -17,13 +17,14 @@ type PageProps = {
 export const revalidate = 300
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { main_pages, locale } = await params
+  const { sections_pages, locale } = await params
   const page = (await getCollectionItem({
-    collection: 'mainPages',
-    slug: main_pages,
+    collection: 'sections',
+    slug: sections_pages,
+    slug_name: true,
     depth: 4,
     locale,
-  })) as MainPage
+  })) as Section
 
   const meta = {
     title: page?.meta?.title || '',
@@ -31,18 +32,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     image: page?.meta?.image?.value || '',
   }
 
-  return generateMeta({ ...meta, slug: page?.slug })
+  return generateMeta({ ...meta, slug: page?.slug, locale })
 }
 
 export async function generateStaticParams() {
   try {
     const results = (await getCollection({
-      collection: 'mainPages',
-    })) as MainPage[]
+      collection: 'sections',
+    })) as Section[]
 
     return results.flatMap((result) =>
       LOCALES.map((locale) => ({
-        main_pages: result.slug,
+        sections_pages: result.slug_name,
         locale: locale,
       })),
     )
@@ -53,17 +54,18 @@ export async function generateStaticParams() {
 }
 
 export default async function ResultPage({ params }: PageProps) {
-  const { main_pages, locale } = await params
+  const { sections_pages, locale } = await params
   const pageData = (await getCollectionItem({
-    collection: 'mainPages',
-    slug: main_pages,
+    collection: 'sections',
+    slug: sections_pages,
+    slug_name: true,
     depth: 4,
     locale,
-  })) as MainPage
+  })) as Section
 
   if (!pageData) {
     return <div>Page not found</div>
   }
 
-  return <TemplateMainPage data={pageData} />
+  return <TemplateSectionPage data={pageData} />
 }
