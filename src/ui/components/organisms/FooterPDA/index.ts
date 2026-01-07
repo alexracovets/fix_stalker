@@ -1,0 +1,1 @@
+export { FooterPDA } from "./FooterPDA";

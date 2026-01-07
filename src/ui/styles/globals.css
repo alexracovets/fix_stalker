@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xl: 1921px;
+  --breakpoint-xls: 1701px;
+  --breakpoint-md: 1025px;
+  --breakpoint-sm: 431px;
+
+  --color-main-black: #0a0a09;
+  --color-main-white: #ebeae8;
+  --color-main-white-light: #a8a3a0;
+  --color-main-white-active: #bfbcb7;
+  --color-main-gray: #7b7a78;
+  --color-main-gray-light: #9e9d98;
+  --color-main-border: #403e3c;
+  --color-black-border: #100f0e;
+  --color-hood-black: #1d1c1a;
+  --color-hood-footer: #1e1c1a;
+  --color-main-destructive: #1e1a17;
+  --color-main-destructive-label: #c2bdb7;
+  --color-main-destructive-bg: #cabfb0;
+  --color-main-yellow: #e6981c;
+  --color-main-yellow-border: #ef8e02;
+  --color-main-yellow-dash: #cf8414;
+  --color-aside-bg-top: #11100e;
+  --color-main-hr: #2a2a29;
+  --color-switch-bg: #cabfb0;
+  --color-switch-bg-active: #1e1c19;
+  --color-switch-btn: #3f3830;
+  --color-switch-btn-active: #afac99;
+  --color-accordion-bg: #1d1d1d;
+  --color-list-bg: #282828;
+  --color-pda-bg: #15110f;
+  --color-effect-best: #40be12;
+  --color-effect-low: #e99586;
+  --color-effect-worst: #e23027;
+  --color-aside-control-bg: #131211;
+  --color-page-li-bg: #323231;
+
+  --font-stalker: var(--font-stalker);
+  --font-calibri: var(--font-calibri);
+  --font-roboto-condensed: var(--font-roboto_condensed);
+  --font-roboto: var(--font-roboto);
+  --font-rethink-sans: var(--font-rethink_sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: calc(100vw / 1920 * 10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-custom-gradient {
+  background: linear-gradient(to top, #898883, #bfbfba, #c9c2b2, #bfbfba, #898883);
+}
+
+.bg-custom-gradient_second {
+  background: linear-gradient(to top, #837f7c, #c9c2b2, #c9c2b2, #837f7c);
+}
+
+.bg-aside-li-gradient {
+  background-color: transparent;
+  border-color: transparent;
+  transition:
+    background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+  will-change: background-color, border-color;
+
+  &::after,
+  &::before {
+    background: linear-gradient(to right, #6e450d 0%, #2a2013 50%, #58380e 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    will-change: opacity;
+  }
+
+  &[data-active='true'],
+  &:hover {
+    background-color: rgba(239, 142, 2, 0.06);
+    border-color: var(--color-main-yellow-border);
+
+    &::after,
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.clip_startBtn {
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.underline {
+  text-underline-offset: 2px;
+}

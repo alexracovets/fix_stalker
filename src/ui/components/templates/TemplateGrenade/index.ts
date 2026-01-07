@@ -1,0 +1,1 @@
+export { TemplateGrenade } from "./TemplateGrenade";

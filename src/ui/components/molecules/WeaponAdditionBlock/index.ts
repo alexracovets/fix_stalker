@@ -1,0 +1,1 @@
+export { WeaponAdditionBlock } from "./WeaponAdditionBlock";

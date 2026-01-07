@@ -1,0 +1,1 @@
+export { TemplateMainPage } from "./TemplateMainPage";

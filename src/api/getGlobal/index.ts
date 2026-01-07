@@ -1,0 +1,1 @@
+export { getGlobal } from "./getGlobal";

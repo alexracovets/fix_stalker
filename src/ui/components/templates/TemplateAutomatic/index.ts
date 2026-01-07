@@ -1,0 +1,1 @@
+export { TemplateAutomatic } from "./TemplateAutomatic";

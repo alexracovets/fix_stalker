@@ -1,0 +1,1 @@
+export { TemplateShotgun } from "./TemplateShotgun";

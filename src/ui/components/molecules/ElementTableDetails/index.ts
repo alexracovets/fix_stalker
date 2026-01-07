@@ -1,0 +1,1 @@
+export { ElementTableDetails } from "./ElementTableDetails";

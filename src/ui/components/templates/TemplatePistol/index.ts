@@ -1,0 +1,1 @@
+export { TemplatePistol } from "./TemplatePistol";

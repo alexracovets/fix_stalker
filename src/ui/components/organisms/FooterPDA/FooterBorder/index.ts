@@ -1,0 +1,1 @@
+export { FooterBorder } from "./FooterBorder";

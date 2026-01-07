@@ -1,0 +1,1 @@
+export { ElementTableResistance } from "./ElementTableResistance";

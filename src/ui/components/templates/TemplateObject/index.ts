@@ -1,0 +1,1 @@
+export { TemplateObject } from "./TemplateObject";
