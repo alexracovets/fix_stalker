@@ -1,11 +1,10 @@
-import { Metadata } from 'next'
-import { Locale } from 'payload'
-
 import { MainPage } from '@payload-types'
+import { Metadata } from 'next'
 
 import { TemplateHome } from '@templates'
 
-import { getCollectionItem, getGlobal } from '@api'
+import { type Locale, LOCALES } from '@constants'
+import { getCollectionItem } from '@api'
 import { generateMeta } from '@utils'
 
 type PageProps = {
@@ -14,7 +13,7 @@ type PageProps = {
   }>
 }
 
-export const revalidate = 60
+export const revalidate = 300
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'uk' }]
+  return LOCALES.map((locale) => ({ locale }))
 }
 
 export default async function HomePage({ params }: PageProps) {

@@ -33,6 +33,7 @@
       "@templates": ["./src/ui/components/templates"],
       "@pages": ["./src/ui/components/pages"],
       "@styles/*": ["./src/ui/styles/*"],
+      "@constants": ["./src/constants"],
       "@types": ["./src/ui/types"],
       "@fonts": ["./src/ui/fonts"],
       "@hooks": ["./src/hooks"],

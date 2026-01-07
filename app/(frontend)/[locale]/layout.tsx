@@ -39,7 +39,7 @@ export default async function FrontendRootLayout({ params, children }: LayoutPro
           roboto_condensed.variable,
           roboto.variable,
           rethink_sans.variable,
-          'antialiased bg-main-black text-main-white relative w-[100dvw] h-[100dvh] max-w-[100%] max-h-[100%] overflow-hidden',
+          'antialiased bg-main-black text-main-white relative w-dvw h-dvh max-w-full max-h-full overflow-hidden',
         )}
       >
         <SaveSettings settings={siteSettingsData} navigation={navigationData} />

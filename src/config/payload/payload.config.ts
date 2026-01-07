@@ -17,6 +17,8 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import path from 'path'
 
+import { LOCALES, DEFAULT_LOCALE } from '@constants'
+
 import {
   ResistanceTable,
   SectionsIcons,
@@ -42,8 +44,8 @@ export default buildConfig({
     supportedLanguages: { en, uk },
   },
   localization: {
-    locales: ['uk', 'en'],
-    defaultLocale: process.env.DEFAULT_LOCALE as string,
+    locales: LOCALES,
+    defaultLocale: DEFAULT_LOCALE,
   },
   admin: {
     user: Users.slug,
