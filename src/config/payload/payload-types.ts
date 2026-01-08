@@ -1231,6 +1231,21 @@ export interface SiteSetting {
   home_video: {
     video: number | Media;
   };
+  aside: {
+    aside_search: {
+      search_name: string;
+      search_image: number | Media;
+    };
+    aside_filter: {
+      filter_name: string;
+      filter_image: number | Media;
+      filter_image_active: number | Media;
+    };
+  };
+  signal: {
+    signal_name: string;
+    signal_offline: string;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1265,6 +1280,29 @@ export interface SiteSettingsSelect<T extends boolean = true> {
     | T
     | {
         video?: T;
+      };
+  aside?:
+    | T
+    | {
+        aside_search?:
+          | T
+          | {
+              search_name?: T;
+              search_image?: T;
+            };
+        aside_filter?:
+          | T
+          | {
+              filter_name?: T;
+              filter_image?: T;
+              filter_image_active?: T;
+            };
+      };
+  signal?:
+    | T
+    | {
+        signal_name?: T;
+        signal_offline?: T;
       };
   updatedAt?: T;
   createdAt?: T;

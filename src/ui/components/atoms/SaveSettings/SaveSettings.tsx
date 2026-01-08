@@ -1,6 +1,6 @@
 'use client'
 
-import { MainPage, Media, Navigation, SiteSetting } from '@payload-types'
+import { MainPage, Navigation, SiteSetting } from '@payload-types'
 import { useEffect } from 'react'
 
 import { useNavigationStore, useSettings } from '@store'
@@ -9,21 +9,31 @@ interface SaveSettingsProps {
   settings: SiteSetting
   navigation: Navigation
 }
+
 export const SaveSettings = ({ settings, navigation }: SaveSettingsProps) => {
-  const { logo, home_video } = settings
+  const { logo, home_video, aside, signal } = settings
   const { setNavigation } = useNavigationStore()
-  const { setLogo, setHomeVideo } = useSettings()
+  const { setLogo, setHomeVideo, setAside, setSignal } = useSettings()
 
   useEffect(() => {
     setNavigation(navigation.pages.map((page) => page.page as MainPage))
-  }, [navigation])
+  }, [navigation, setNavigation])
 
   useEffect(() => {
-    setLogo({
-      logo: logo.logo as Media,
-      subtitle: logo.subtitle as string,
-    })
-    setHomeVideo(home_video.video as Media)
-  }, [settings])
+    setLogo(logo)
+  }, [setLogo, logo])
+
+  useEffect(() => {
+    setHomeVideo(home_video)
+  }, [setHomeVideo, home_video])
+
+  useEffect(() => {
+    setAside(aside)
+  }, [setAside, aside])
+
+  useEffect(() => {
+    setSignal(signal)
+  }, [setSignal, signal])
+
   return null
 }

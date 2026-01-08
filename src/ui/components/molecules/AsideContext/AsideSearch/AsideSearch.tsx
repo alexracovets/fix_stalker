@@ -1,62 +1,38 @@
-"use client";
+'use client'
 
-import { Media, SystemField } from "@payload-types";
-import { useEffect, useState } from "react";
+import { Media } from '@payload-types'
+import { useState } from 'react'
 
-import {
-  AtomWrapper,
-  AtomButton,
-  AtomImage,
-  AtomInput,
-  AtomText,
-  CategoryIcon,
-} from "@atoms";
-
-import { useNavigationStore } from "@store";
-import { getCollectionItem } from "@api";
+import { AtomWrapper, AtomButton, AtomImage, AtomInput, AtomText, CategoryIcon } from '@atoms'
+import { useNavigationStore, useSettings } from '@store'
 
 export const AsideSearch = () => {
-  const [data, setData] = useState<SystemField | null>(null);
-  const [filterHovered, setFilterHovered] = useState<boolean>(false);
-
-  const { searchInput, isFilterActive, setSearchInput, setIsFilterActive } =
-    useNavigationStore();
-
-  const searchData = data?.group_search_aside;
-
-  const fetchData = async () => {
-    const payload = await getCollectionItem({
-      collection: "system-fields",
-      slug: "search_aside",
-      depth: 1,
-      type: true,
-    });
-    if (payload) {
-      setData(payload as SystemField);
-    }
-  };
+  const { aside } = useSettings()
+  const [filterHovered, setFilterHovered] = useState<boolean>(false)
+  const { searchInput, isFilterActive, setSearchInput, setIsFilterActive } = useNavigationStore()
 
   const handleClick = () => {
-    const status = useNavigationStore.getState().isFilterActive;
-    setIsFilterActive(!status);
-  };
+    const status = useNavigationStore.getState().isFilterActive
+    setIsFilterActive(!status)
+  }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  if (!aside) return null
 
-  if (!searchData) return null;
+  const searchData = aside.aside_search
+  const searchImage = searchData?.search_image as Media
+  const searchName = searchData?.search_name
+  const filterData = aside.aside_filter
+  const filterImage = filterData?.filter_image as Media
+  const filterImageActive = filterData?.filter_image_active as Media
+  const filterName = filterData?.filter_name
 
   return (
     <AtomWrapper variant="aside_search_wrapper">
       <AtomWrapper variant="aside_search_inner">
-        <AtomImage
-          variant="input_search"
-          image={searchData?.search_image as Media}
-        />
+        {searchImage && <AtomImage variant="input_search" image={searchImage} />}
         <AtomInput
           variant="aside"
-          placeholder={searchData?.search_name}
+          placeholder={searchName}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
@@ -69,19 +45,16 @@ export const AsideSearch = () => {
         onMouseLeave={() => setFilterHovered(false)}
       >
         <CategoryIcon
-          activeIcon={searchData?.filter_image_active as Media}
-          inactiveIcon={searchData?.filter_image as Media}
+          activeIcon={filterImageActive}
+          inactiveIcon={filterImage}
           variant="input_search_button"
           wrapper="input_search_button_wrapper"
           active={isFilterActive || filterHovered}
         />
-        <AtomText
-          variant="aside_search_button_text"
-          data-active={isFilterActive || filterHovered}
-        >
-          {searchData?.filter_name}
+        <AtomText variant="aside_search_button_text" data-active={isFilterActive || filterHovered}>
+          {filterName}
         </AtomText>
       </AtomButton>
     </AtomWrapper>
-  );
-};
+  )
+}
