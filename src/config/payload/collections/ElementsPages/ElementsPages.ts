@@ -1,5 +1,5 @@
-import { ElementsPage } from "@/config/payload/payload-types";
-import type { CollectionConfig } from "payload";
+import { ElementsPage } from '@/config/payload/payload-types'
+import type { CollectionConfig } from 'payload'
 
 import {
   TacticalKitFields,
@@ -12,76 +12,86 @@ import {
   GrenadeFields,
   SniperFields,
   PistolFields,
-  ArmorFields,
+  SuitsFields,
   MaskFields,
   AmmoFields,
   ExoFields,
-} from "@fields";
+} from '@fields'
 
 export const ElementsPages: CollectionConfig = {
-  slug: "elements_pages",
+  slug: 'elements_pages',
   labels: {
-    singular: "Елемент",
-    plural: "Елементи",
+    singular: {
+      uk: 'Елемент',
+      en: 'Element',
+    },
+    plural: {
+      uk: 'Елементи',
+      en: 'Elements',
+    },
   },
   admin: {
-    useAsTitle: "title",
-    description:
-      "Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в секціях.",
-    group: "Контент",
+    useAsTitle: 'title',
+    description: {
+      uk: 'Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в секціях.',
+      en: 'Here you create pages such as suits, masks, pistols, etc. Which will be displayed in sections.',
+    },
+    group: {
+      uk: 'Контент',
+      en: 'Content',
+    },
   },
   hooks: {
     beforeChange: [
       async ({ data, req }) => {
         if (data.parent) {
           const parentPage = await req.payload.findByID({
-            collection: "sections",
+            collection: 'sections',
             id: data.parent,
-          });
-          data.slug = `${parentPage.slug}/${data.slug_name}`;
+          })
+          data.slug = `${parentPage.slug}/${data.slug_name}`
         } else {
-          data.slug = `${data.slug_name}`;
+          data.slug = `${data.slug_name}`
         }
-        return data;
+        return data
       },
     ],
     afterChange: [
       async ({ doc, req, previousDoc }) => {
         if (doc.parent !== previousDoc?.parent) {
-          const newSlug = doc.slug;
+          const newSlug = doc.slug
           const sections = await req.payload.find({
-            collection: "sections",
+            collection: 'sections',
             where: {
               elements: {
                 contains: doc.id,
               },
             },
-          });
+          })
 
           for (const section of sections.docs) {
             const currentElementIds =
               section.elements?.map((element: number | ElementsPage) =>
-                typeof element === "object" ? element.id : element
-              ) || [];
+                typeof element === 'object' ? element.id : element,
+              ) || []
 
-            let updatedSections = currentElementIds;
+            let updatedSections = currentElementIds
 
-            const shouldKeepInSection =
-              newSlug && newSlug.startsWith(section.slug + "/");
+            const shouldKeepInSection = newSlug && newSlug.startsWith(section.slug + '/')
 
             if (!shouldKeepInSection) {
               updatedSections = currentElementIds.filter(
-                (elementId: number) => elementId !== doc.id
-              );
+                (elementId: number) => elementId !== doc.id,
+              )
             }
 
             await req.payload.update({
-              collection: "sections",
+              collection: 'sections',
               id: section.id,
               data: {
                 elements: updatedSections,
               },
-            });
+            })
           }
         }
       },
@@ -89,13 +99,16 @@ export const ElementsPages: CollectionConfig = {
   },
   fields: [
     {
-      type: "tabs",
+      type: 'tabs',
       tabs: [
         {
-          label: "Контент",
+          label: {
+            uk: 'Контент',
+            en: 'Content',
+          },
           fields: [
             ...ElementsFields(),
-            ...ArmorFields(),
+            ...SuitsFields(),
             ...MaskFields(),
             ...ExoFields(),
             ...ObjectsFields(),
@@ -110,10 +123,13 @@ export const ElementsPages: CollectionConfig = {
           ],
         },
         {
-          label: "Конфігурація",
+          label: {
+            uk: 'Конфігурація',
+            en: 'Configuration',
+          },
           fields: [...PageConfigFields()],
         },
       ],
     },
   ],
-};
+}

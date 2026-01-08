@@ -1,16 +1,19 @@
-import type { Field } from "payload";
+import type { Field } from 'payload'
 
 export const PageConfigFields = (): Field[] => {
   return [
     {
-      name: "slug_name",
-      label: "Назва сторінки(slug)",
-      type: "text",
+      name: 'slug_name',
+      label: {
+        uk: 'Назва сторінки (slug)',
+        en: 'Page name (slug)',
+      },
+      type: 'text',
       required: true,
     },
     {
-      name: "slug",
-      type: "text",
+      name: 'slug',
+      type: 'text',
       required: true,
       unique: true,
       admin: {
@@ -18,11 +21,14 @@ export const PageConfigFields = (): Field[] => {
       },
     },
     {
-      name: "parent",
-      label: "Батьківська сторінка",
-      type: "relationship",
-      relationTo: "sections",
+      name: 'parent',
+      label: {
+        uk: 'Батьківська сторінка',
+        en: 'Parent page',
+      },
+      type: 'relationship',
+      relationTo: 'sections',
       hasMany: false,
     },
-  ];
-};
+  ]
+}

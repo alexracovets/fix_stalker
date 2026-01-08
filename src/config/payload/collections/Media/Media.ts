@@ -3,8 +3,14 @@ import type { CollectionConfig } from 'payload'
 export const Media: CollectionConfig = {
   slug: 'media',
   labels: {
-    singular: 'Зображення',
-    plural: 'Зображення',
+    singular: {
+      uk: 'Медіа',
+      en: 'Media',
+    },
+    plural: {
+      uk: 'Медіа файли',
+      en: 'Media files',
+    },
   },
   access: {
     read: () => true,
@@ -12,13 +18,20 @@ export const Media: CollectionConfig = {
   admin: {
     useAsTitle: 'alt',
     defaultColumns: ['filename', 'alt'],
-    group: 'Медіа',
+    group: {
+      uk: 'Медіа',
+      en: 'Media',
+    },
   },
   fields: [
     {
       name: 'alt',
       type: 'text',
       required: true,
+      label: {
+        uk: 'Альтернативний текст',
+        en: 'Alternative text',
+      },
     },
   ],
   upload: true,

@@ -1,69 +1,79 @@
-import { Section } from "@/config/payload/payload-types";
-import type { CollectionConfig } from "payload";
+import { Section } from '@/config/payload/payload-types'
+import type { CollectionConfig } from 'payload'
 
 export const Sections: CollectionConfig = {
-  slug: "sections",
+  slug: 'sections',
   labels: {
-    singular: "Секція",
-    plural: "Секції",
+    singular: {
+      uk: 'Секція',
+      en: 'Section',
+    },
+    plural: {
+      uk: 'Секції',
+      en: 'Sections',
+    },
   },
   admin: {
-    useAsTitle: "title",
-    description:
-      "Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в головних сторінках.",
-    group: "Контент",
+    useAsTitle: 'title',
+    description: {
+      uk: 'Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в головних сторінках.',
+      en: 'Here you create pages such as suits, masks, pistols, etc. Which will be displayed on the main pages.',
+    },
+    group: {
+      uk: 'Контент',
+      en: 'Content',
+    },
   },
   hooks: {
     beforeChange: [
       async ({ data, req }) => {
         if (data.slug_name && data.parent) {
           const parentPage = await req.payload.findByID({
-            collection: "mainPages",
+            collection: 'mainPages',
             id: data.parent,
-          });
+          })
 
-          data.slug = `/${parentPage.slug}/${data.slug_name}`;
+          data.slug = `/${parentPage.slug}/${data.slug_name}`
         }
-        return data;
+        return data
       },
     ],
     afterChange: [
       async ({ doc, req, previousDoc }) => {
         if (doc.parent !== previousDoc?.parent) {
-          const newSlug = doc.slug;
+          const newSlug = doc.slug
           const sections = await req.payload.find({
-            collection: "mainPages",
+            collection: 'mainPages',
             where: {
               sections: {
                 contains: doc.id,
               },
             },
-          });
+          })
 
           for (const section of sections.docs) {
             const currentElementIds =
               section.sections?.map((element: number | Section) =>
-                typeof element === "object" ? element.id : element
-              ) || [];
+                typeof element === 'object' ? element.id : element,
+              ) || []
 
-            let updatedSections = currentElementIds;
+            let updatedSections = currentElementIds
 
-            const shouldKeepInSection =
-              newSlug && newSlug.startsWith(section.slug + "/");
+            const shouldKeepInSection = newSlug && newSlug.startsWith(section.slug + '/')
 
             if (!shouldKeepInSection) {
               updatedSections = currentElementIds.filter(
-                (elementId: number) => elementId !== doc.id
-              );
+                (elementId: number) => elementId !== doc.id,
+              )
             }
 
             await req.payload.update({
-              collection: "mainPages",
+              collection: 'mainPages',
               id: section.id,
               data: {
                 sections: updatedSections,
               },
-            });
+            })
           }
         }
       },
@@ -71,81 +81,105 @@ export const Sections: CollectionConfig = {
   },
   fields: [
     {
-      type: "tabs",
+      type: 'tabs',
       tabs: [
         {
-          label: "Контент",
+          label: {
+            uk: 'Контент',
+            en: 'Content',
+          },
           fields: [
             {
-              label: "Заголовок",
-              name: "title",
-              type: "text",
+              label: {
+                uk: 'Заголовок',
+                en: 'Title',
+              },
+              name: 'title',
+              type: 'text',
               required: true,
               localized: true,
             },
             {
-              label: "Підзаголовок",
-              name: "sub_title",
-              type: "text",
+              label: {
+                uk: 'Підзаголовок',
+                en: 'Subtitle',
+              },
+              name: 'sub_title',
+              type: 'text',
               required: true,
               localized: true,
             },
             {
-              name: "icons",
-              label: "Іконки",
-              type: "relationship",
-              relationTo: "sections_icons",
+              name: 'icons',
+              label: {
+                uk: 'Іконка секції',
+                en: 'Section icon',
+              },
+              type: 'relationship',
+              relationTo: 'sections_icons',
               hasMany: false,
               required: true,
             },
           ],
         },
         {
-          label: "Конфігурація",
+          label: {
+            uk: 'Конфігурація',
+            en: 'Configuration',
+          },
           fields: [
             {
-              name: "slug_name",
-              label: "Назва сторінки",
-              type: "text",
+              name: 'slug_name',
+              label: {
+                uk: 'Назва сторінки (slug)',
+                en: 'Page name (slug)',
+              },
+              type: 'text',
               required: true,
               unique: true,
             },
             {
-              name: "slug",
-              type: "text",
+              name: 'slug',
+              type: 'text',
               required: true,
               admin: {
                 hidden: true,
               },
             },
             {
-              name: "parent",
-              label: "Батьківська сторінка",
-              type: "relationship",
-              relationTo: "mainPages",
+              name: 'parent',
+              label: {
+                uk: 'Батьківська сторінка',
+                en: 'Parent page',
+              },
+              type: 'relationship',
+              relationTo: 'mainPages',
               hasMany: false,
               filterOptions: {
                 slug: {
-                  not_equals: "/",
+                  not_equals: '/',
                 },
               },
             },
             {
-              name: "elements",
-              label: "Відображати Елементи",
-              type: "relationship",
-              relationTo: "elements_pages",
+              name: 'elements',
+              label: {
+                uk: 'Відображати Елементи',
+                en: 'Display elements',
+              },
+              type: 'relationship',
+              relationTo: 'elements_pages',
               hasMany: true,
               required: false,
               filterOptions: ({ siblingData }) => {
                 if (!siblingData || !(siblingData as Section).slug) {
-                  return false;
+                  return false
                 }
                 return {
                   slug: {
                     like: `${(siblingData as Section).slug}/%`,
                   },
-                };
+                }
               },
             },
           ],
@@ -153,4 +187,4 @@ export const Sections: CollectionConfig = {
       ],
     },
   ],
-};
+}

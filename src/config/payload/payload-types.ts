@@ -143,7 +143,7 @@ export interface UserAuthOperations {
   };
 }
 /**
- * Тут створюються сторінки такі як Головна, Захист, Зброя, і тд. Для головної slug має бути '/'.
+ * Here you create pages such as Main, Protection, Weapon, etc. For the main slug, it must be "/"
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mainPages".
@@ -169,7 +169,7 @@ export interface MainPage {
   createdAt: string;
 }
 /**
- * Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в головних сторінках.
+ * Here you create pages such as suits, masks, pistols, etc. Which will be displayed on the main pages.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sections".
@@ -230,7 +230,7 @@ export interface Media {
   focalY?: number | null;
 }
 /**
- * Тут створюються сторінки такі як Костюми, Маски, Пістолети, і тд. Які будуть відображатися в секціях.
+ * Here you create pages such as suits, masks, pistols, etc. Which will be displayed in sections.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "elements_pages".
@@ -272,7 +272,7 @@ export interface ElementsPage {
     };
     [k: string]: unknown;
   } | null;
-  armor_group?: {
+  suits_group?: {
     resistance?:
       | {
           indicator: number | ResistanceTable;
@@ -876,7 +876,7 @@ export interface ElementsPagesSelect<T extends boolean = true> {
   title?: T;
   sub_title?: T;
   description?: T;
-  armor_group?:
+  suits_group?:
     | T
     | {
         resistance?:

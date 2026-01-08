@@ -3,96 +3,180 @@ import {
   ItalicFeature,
   ParagraphFeature,
   lexicalEditor,
-} from "@payloadcms/richtext-lexical";
-import type { Field } from "payload";
+} from '@payloadcms/richtext-lexical'
+import type { Field } from 'payload'
 
 export const ElementsFields = (): Field[] => {
   return [
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "type",
-          type: "select",
-          label: "Тип Сторінки",
+          name: 'type',
+          type: 'select',
+          label: {
+            uk: 'Тип Сторінки',
+            en: 'Page type',
+          },
           options: [
-            { label: "Костюми", value: "suits" },
-            { label: "Маски", value: "masks" },
-            { label: "Комбінована броня", value: "exosuits" },
-            { label: "Предмети", value: "objects" },
-            { label: "Пістолет", value: "pistols" },
-            { label: "Штурмова гвинтівка", value: "automatic" },
-            { label: "Дробовик", value: "shotgun" },
-            { label: "Кулемет", value: "machine_gun" },
-            { label: "Граната", value: "grenade" },
-            { label: "Снайперська зброя", value: "sniper" },
-            { label: "Тактичний обвіс", value: "tactical_kit" },
-            { label: "Боєприпас", value: "ammo" },
+            {
+              label: {
+                uk: 'Костюми',
+                en: 'Suits',
+              },
+              value: 'suits',
+            },
+            {
+              label: {
+                uk: 'Маски',
+                en: 'Masks',
+              },
+              value: 'masks',
+            },
+            {
+              label: {
+                uk: 'Комбінована броня',
+                en: 'Exosuits',
+              },
+              value: 'exosuits',
+            },
+            {
+              label: {
+                uk: 'Предмети',
+                en: 'Objects',
+              },
+              value: 'objects',
+            },
+            {
+              label: {
+                uk: 'Пістолет',
+                en: 'Pistol',
+              },
+              value: 'pistols',
+            },
+            {
+              label: {
+                uk: 'Штурмова гвинтівка',
+                en: 'Automatic',
+              },
+              value: 'automatic',
+            },
+            {
+              label: {
+                uk: 'Дробовик',
+                en: 'Shotgun',
+              },
+              value: 'shotgun',
+            },
+            { label: 'Кулемет', value: 'machine_gun' },
+            {
+              label: {
+                uk: 'Граната',
+                en: 'Grenade',
+              },
+              value: 'grenade',
+            },
+            {
+              label: {
+                uk: 'Снайперська зброя',
+                en: 'Sniper',
+              },
+              value: 'sniper',
+            },
+            {
+              label: {
+                uk: 'Тактичний обвіс',
+                en: 'Tactical kit',
+              },
+              value: 'tactical_kit',
+            },
+            {
+              label: {
+                uk: 'Боєприпас',
+                en: 'Ammo',
+              },
+              value: 'ammo',
+            },
           ],
-          defaultValue: "suits",
+          defaultValue: 'suits',
           admin: {
-            width: "40%",
+            width: '50%',
           },
         },
         {
-          name: "aside_image",
-          type: "relationship",
-          relationTo: "media",
-          label: "Зображення для Aside",
+          name: 'aside_image',
+          type: 'relationship',
+          relationTo: 'media',
+          label: {
+            uk: 'Зображення для Aside',
+            en: 'Aside image',
+          },
           required: true,
           admin: {
-            width: "60%",
+            width: '50%',
           },
         },
       ],
     },
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          label: "Зображення",
-          relationTo: "media",
-          name: "image",
-          type: "upload",
+          label: {
+            uk: 'Зображення сторінки',
+            en: 'Page image',
+          },
+          relationTo: 'media',
+          name: 'image',
+          type: 'upload',
           required: true,
           admin: {
-            width: "50%",
+            width: '50%',
           },
         },
       ],
     },
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          label: "Заголовок",
-          name: "title",
-          type: "text",
+          label: {
+            uk: 'Заголовок',
+            en: 'Title',
+          },
+          name: 'title',
+          type: 'text',
           required: true,
           localized: true,
           admin: {
-            width: "50%",
+            width: '50%',
           },
         },
         {
-          label: "Підзаголовок",
-          name: "sub_title",
-          type: "text",
+          label: {
+            uk: 'Підзаголовок',
+            en: 'Subtitle',
+          },
+          name: 'sub_title',
+          type: 'text',
           required: true,
           localized: true,
           admin: {
-            width: "50%",
+            width: '50%',
           },
         },
       ],
     },
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          label: "Опис сторінки",
-          name: "description",
-          type: "richText",
+          label: {
+            uk: 'Опис сторінки',
+            en: 'Page description',
+          },
+          name: 'description',
+          type: 'richText',
           localized: true,
           editor: lexicalEditor({
             features: [ParagraphFeature(), BoldFeature(), ItalicFeature()],
@@ -100,5 +184,5 @@ export const ElementsFields = (): Field[] => {
         },
       ],
     },
-  ];
-};
+  ]
+}

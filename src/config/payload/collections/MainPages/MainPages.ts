@@ -1,75 +1,103 @@
-import type { CollectionConfig } from "payload";
-import { MainPage } from "@/config/payload/payload-types";
+import type { CollectionConfig } from 'payload'
+import { MainPage } from '@/config/payload/payload-types'
 
 export const MainPages: CollectionConfig = {
-  slug: "mainPages",
+  slug: 'mainPages',
   labels: {
-    singular: "Головна сторінка",
-    plural: "Головні сторінки",
+    singular: {
+      uk: 'Головна сторінка',
+      en: 'Main page',
+    },
+    plural: {
+      uk: 'Головні сторінки',
+      en: 'Main pages',
+    },
   },
   admin: {
-    useAsTitle: "title",
-    description:
-      "Тут створюються сторінки такі як Головна, Захист, Зброя, і тд. Для головної slug має бути '/'.",
-    group: "Контент",
+    useAsTitle: 'title',
+    description: {
+      uk: 'Тут створюються сторінки такі як Головна, Захист, Зброя, і тд. Для головної slug має бути "/".',
+      en: 'Here you create pages such as Main, Protection, Weapon, etc. For the main slug, it must be "/"',
+    },
+    group: {
+      uk: 'Контент',
+      en: 'Content',
+    },
   },
   fields: [
     {
-      type: "tabs",
+      type: 'tabs',
       tabs: [
         {
-          label: "Контент",
+          label: {
+            uk: 'Контент',
+            en: 'Content',
+          },
           fields: [
             {
-              label: "Заголовок",
-              type: "text",
-              name: "title",
+              label: {
+                uk: 'Заголовок',
+                en: 'Title',
+              },
+              type: 'text',
+              name: 'title',
               required: true,
               localized: true,
             },
             {
-              label: "Підзаголовок",
-              name: "sub_title",
-              type: "text",
+              label: {
+                uk: 'Підзаголовок',
+                en: 'Subtitle',
+              },
+              name: 'sub_title',
+              type: 'text',
               required: true,
               localized: true,
               admin: {
-                condition: (data) => data?.slug !== "/",
+                condition: (data) => data?.slug !== '/',
               },
             },
           ],
         },
         {
-          label: "Конфігурація",
+          label: {
+            uk: 'Конфігурація',
+            en: 'Configuration',
+          },
           fields: [
             {
-              label: "Назва сторінки",
-              name: "slug",
-              type: "text",
+              label: {
+                uk: 'Назва сторінки',
+                en: 'Page name',
+              },
+              name: 'slug',
+              type: 'text',
               unique: true,
               required: true,
             },
             {
-              name: "sections",
-              label: "Відображати Секції",
-              type: "relationship",
-              relationTo: "sections",
+              name: 'sections',
+              label: {
+                uk: 'Відображати Секції',
+                en: 'Display sections',
+              },
+              type: 'relationship',
+              relationTo: 'sections',
               hasMany: true,
               required: false,
               admin: {
-                condition: (data) => data?.slug !== "/",
+                condition: (data) => data?.slug !== '/',
               },
               filterOptions: ({ siblingData }) => {
                 if (!siblingData || !(siblingData as MainPage).id) {
-                  return false;
+                  return false
                 }
-                const currentMainPageId = (siblingData as MainPage).id;
-                // Фільтруємо секції, які мають поточну mainPage як parent
+                const currentMainPageId = (siblingData as MainPage).id
                 return {
                   parent: {
                     equals: currentMainPageId,
                   },
-                };
+                }
               },
             },
           ],
@@ -77,4 +105,4 @@ export const MainPages: CollectionConfig = {
       ],
     },
   ],
-};
+}
