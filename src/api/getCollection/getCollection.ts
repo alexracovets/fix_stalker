@@ -1,6 +1,7 @@
 "use server";
 
-import { CollectionSlug, Config, getPayload, SanitizedConfig, Locale } from "payload";
+import { CollectionSlug, Config, getPayload, SanitizedConfig } from "payload";
+import { type Locale } from "@constants";
 import config from "@payload-config";
 
 interface getCollectionProps {

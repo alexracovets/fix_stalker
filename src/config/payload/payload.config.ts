@@ -79,13 +79,13 @@ export default buildConfig({
       HorizontalRuleFeature(),
     ],
   }),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET as string,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL || '',
+      connectionString: process.env.DATABASE_URL as string,
     },
   }),
   sharp,
@@ -104,15 +104,15 @@ export default buildConfig({
           prefix: 'video',
         },
       },
-      bucket: process.env.S3_BUCKET || '',
+      bucket: process.env.S3_BUCKET as string,
       config: {
         forcePathStyle: true,
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+          accessKeyId: process.env.S3_ACCESS_KEY as string,
+          secretAccessKey: process.env.S3_SECRET_KEY as string,
         },
-        region: process.env.S3_REGION || '',
-        endpoint: process.env.S3_ENDPOINT || '',
+        region: process.env.S3_REGION,
+        endpoint: process.env.S3_ENDPOINT,
       },
     }),
   ],
