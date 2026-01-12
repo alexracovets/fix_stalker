@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { ElementsPage, Section, SectionsIcon } from "@payload-types";
+import { ElementsPage, Section, SectionsIcon } from '@payload-types'
 
-import { AtomLink, AtomWrapper, CategoryIcon } from "@atoms";
-import { ListGridItemShowCase } from "@molecules";
+import { AtomLink, AtomWrapper, CategoryIcon } from '@atoms'
+import { ListGridItemShowCase } from '@molecules'
 
 interface ListGridItemProps {
-  section: Section;
+  section: Section
 }
 
 export const ListGridItem = ({ section }: ListGridItemProps) => {
@@ -23,5 +23,5 @@ export const ListGridItem = ({ section }: ListGridItemProps) => {
       </AtomLink>
       <ListGridItemShowCase elements={section.elements as ElementsPage[]} />
     </AtomWrapper>
-  );
-};
+  )
+}

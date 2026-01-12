@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 export const vertexShader = `
     varying vec2 vUv;
@@ -6,4 +6,4 @@ export const vertexShader = `
         vUv = uv;  
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
-`;
+`

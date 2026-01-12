@@ -1,1 +1,1 @@
-export { AsideSectionsControl } from "./AsideSectionsControl";
+export { AsideSectionsControl } from './AsideSectionsControl'

@@ -1,1 +1,1 @@
-export { useInternet } from "./useInternet";
+export { useInternet } from './useInternet'

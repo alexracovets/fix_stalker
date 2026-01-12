@@ -1,19 +1,15 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
-import {
-  WeaponAdditionBlock,
-  ElementTableDetails,
-  AuthorBlock,
-} from "@molecules";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
+import { WeaponAdditionBlock, ElementTableDetails, AuthorBlock } from '@molecules'
 
 interface TemplateAmmoProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateAmmo = ({ data }: TemplateAmmoProps) => {
-  const ammoData = data.ammo_group;
+  const ammoData = data.ammo_group
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -31,20 +27,16 @@ export const TemplateAmmo = ({ data }: TemplateAmmoProps) => {
           <AtomHR variant="default" />
           <AtomWrapper variant="image_author_wrapper">
             <AtomImage image={data.image as Media} variant="element_granade" />
-            {ammoData?.author_image &&
-              ammoData.designer_name &&
-              ammoData.designer_link && (
-                <AuthorBlock
-                  image={ammoData.author_image as Media}
-                  name={ammoData.designer_name}
-                  link={ammoData.designer_link}
-                />
-              )}
+            {ammoData?.author_image && ammoData.designer_name && ammoData.designer_link && (
+              <AuthorBlock
+                image={ammoData.author_image as Media}
+                name={ammoData.designer_name}
+                link={ammoData.designer_link}
+              />
+            )}
           </AtomWrapper>
           <RichText text={data.description} />
-          {ammoData?.details && (
-            <ElementTableDetails items={ammoData?.details} variant="granade" />
-          )}
+          {ammoData?.details && <ElementTableDetails items={ammoData?.details} variant="granade" />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <WeaponAdditionBlock
@@ -54,5 +46,5 @@ export const TemplateAmmo = ({ data }: TemplateAmmoProps) => {
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

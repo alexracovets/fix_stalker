@@ -1,34 +1,34 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig } from 'payload'
 
-import { AsideSearchFields } from "@fields";
+import { AsideSearchFields } from '@fields'
 
 export const SystemFields: CollectionConfig = {
-  slug: "system-fields",
+  slug: 'system-fields',
   labels: {
-    singular: "UI System",
-    plural: "UI System",
+    singular: 'UI System',
+    plural: 'UI System',
   },
   access: {
     read: () => true,
   },
   admin: {
-    useAsTitle: "type",
-    group: "Додатково",
+    useAsTitle: 'type',
+    group: 'Додатково',
   },
   fields: [
     {
-      name: "type",
-      type: "select",
-      label: "Тип Поля",
+      name: 'type',
+      type: 'select',
+      label: 'Тип Поля',
       options: [
-        { label: "Aside Search", value: "search_aside" },
-        { label: "Home Logo", value: "home_logo" },
+        { label: 'Aside Search', value: 'search_aside' },
+        { label: 'Home Logo', value: 'home_logo' },
       ],
-      defaultValue: "search_aside",
+      defaultValue: 'search_aside',
     },
     {
-      type: "row",
+      type: 'row',
       fields: [...AsideSearchFields()],
     },
   ],
-};
+}

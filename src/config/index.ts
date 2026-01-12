@@ -1,1 +1,1 @@
-export { default as payloadConfig } from "./payload/payload.config";
+export { default as payloadConfig } from './payload/payload.config'

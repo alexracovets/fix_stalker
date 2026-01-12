@@ -1,1 +1,1 @@
-export { TacticalKitFields } from "./TacticalKitFields";
+export { TacticalKitFields } from './TacticalKitFields'

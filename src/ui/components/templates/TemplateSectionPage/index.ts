@@ -1,1 +1,1 @@
-export { TemplateSectionPage } from "./TemplateSectionPage";
+export { TemplateSectionPage } from './TemplateSectionPage'

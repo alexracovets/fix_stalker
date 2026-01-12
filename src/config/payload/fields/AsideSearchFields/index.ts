@@ -1,1 +1,1 @@
-export { AsideSearchFields } from "./AsideSearchFields";
+export { AsideSearchFields } from './AsideSearchFields'

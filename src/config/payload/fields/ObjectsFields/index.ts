@@ -1,1 +1,1 @@
-export { ObjectsFields } from "./ObjectsFields";
+export { ObjectsFields } from './ObjectsFields'

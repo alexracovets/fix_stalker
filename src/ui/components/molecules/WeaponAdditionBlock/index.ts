@@ -1,1 +1,1 @@
-export { WeaponAdditionBlock } from "./WeaponAdditionBlock";
+export { WeaponAdditionBlock } from './WeaponAdditionBlock'

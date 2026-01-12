@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { AsidePDABorder } from "./AsidePDABorder";
-import { AsideContext } from "@molecules";
-import { AtomWrapper } from "@atoms";
+import { AsidePDABorder } from './AsidePDABorder'
+import { AsideContext } from '@molecules'
+import { AtomWrapper } from '@atoms'
 
 export const AsidePDA = () => {
   return (
@@ -12,5 +12,5 @@ export const AsidePDA = () => {
         <AsideContext />
       </aside>
     </AtomWrapper>
-  );
-};
+  )
+}

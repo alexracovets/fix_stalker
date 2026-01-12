@@ -1,1 +1,1 @@
-export { TemplateGrenade } from "./TemplateGrenade";
+export { TemplateGrenade } from './TemplateGrenade'

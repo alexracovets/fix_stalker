@@ -1,1 +1,1 @@
-export { HomeVideo } from "./HomeVideo";
+export { HomeVideo } from './HomeVideo'

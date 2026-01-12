@@ -1,1 +1,1 @@
-export { TemplateObject } from "./TemplateObject";
+export { TemplateObject } from './TemplateObject'

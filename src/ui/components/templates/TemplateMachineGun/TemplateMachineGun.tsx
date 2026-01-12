@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
 import {
   ElementTableResistance,
   WeaponAdditionBlock,
   ElementTableDetails,
   AuthorBlock,
-} from "@molecules";
+} from '@molecules'
 
 interface TemplateMachineGunProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateMachineGun = ({ data }: TemplateMachineGunProps) => {
-  const machineGunData = data.machine_gun_group;
+  const machineGunData = data.machine_gun_group
 
   return (
     <AtomWrapper variant="content_element">
@@ -44,20 +44,15 @@ export const TemplateMachineGun = ({ data }: TemplateMachineGunProps) => {
               )}
           </AtomWrapper>
           <RichText text={data.description} />
-          {machineGunData && (
-            <ElementTableResistance items={machineGunData.resistance} />
-          )}
+          {machineGunData && <ElementTableResistance items={machineGunData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <WeaponAdditionBlock tacticalKits={[]} />
           {machineGunData?.details && (
-            <ElementTableDetails
-              items={machineGunData?.details}
-              variant="pistol"
-            />
+            <ElementTableDetails items={machineGunData?.details} variant="pistol" />
           )}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

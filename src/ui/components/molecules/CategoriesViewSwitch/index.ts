@@ -1,1 +1,1 @@
-export { CategoriesViewSwitch } from "./CategoriesViewSwitch";
+export { CategoriesViewSwitch } from './CategoriesViewSwitch'

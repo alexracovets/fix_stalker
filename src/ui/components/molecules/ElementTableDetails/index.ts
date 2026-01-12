@@ -1,1 +1,1 @@
-export { ElementTableDetails } from "./ElementTableDetails";
+export { ElementTableDetails } from './ElementTableDetails'

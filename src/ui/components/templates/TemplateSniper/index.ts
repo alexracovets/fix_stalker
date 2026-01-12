@@ -1,1 +1,1 @@
-export { TemplateSniper } from "./TemplateSniper";
+export { TemplateSniper } from './TemplateSniper'

@@ -1,1 +1,1 @@
-export { SystemFields } from "./SystemFields";
+export { SystemFields } from './SystemFields'

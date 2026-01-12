@@ -1,1 +1,1 @@
-export { NavigationPDADash } from "./NavigationPDADash";
+export { NavigationPDADash } from './NavigationPDADash'

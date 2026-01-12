@@ -1,1 +1,1 @@
-export { AtomLink } from "./AtomLink";
+export { AtomLink } from './AtomLink'

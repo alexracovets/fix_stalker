@@ -1,1 +1,1 @@
-export { PlaneMap } from "./PlaneMap";
+export { PlaneMap } from './PlaneMap'

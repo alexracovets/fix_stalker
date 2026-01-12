@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import { AtomImage, AtomLink, AtomText } from "@atoms";
+import { AtomImage, AtomLink, AtomText } from '@atoms'
 
-import { Media } from "@payload-types";
+import { Media } from '@payload-types'
 
 interface AuthorBlockProps {
-  image: Media;
-  name: string;
-  link: string;
+  image: Media
+  name: string
+  link: string
 }
 
 export const AuthorBlock = ({ image, name, link }: AuthorBlockProps) => {
@@ -16,5 +16,5 @@ export const AuthorBlock = ({ image, name, link }: AuthorBlockProps) => {
       <AtomImage image={image} variant="table_icon" />
       <AtomText variant="author">{name}</AtomText>
     </AtomLink>
-  );
-};
+  )
+}

@@ -1,1 +1,1 @@
-export { TemplateAmmo } from "./TemplateAmmo";
+export { TemplateAmmo } from './TemplateAmmo'

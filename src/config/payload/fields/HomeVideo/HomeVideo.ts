@@ -1,15 +1,15 @@
-import type { Field } from "payload";
+import type { Field } from 'payload'
 
 export const HomeVideo = (): Field => {
   return {
-    relationTo: "video",
-    name: "video",
-    type: "relationship",
-    label: "Відео на головній сторінці",
+    relationTo: 'video',
+    name: 'video',
+    type: 'relationship',
+    label: 'Відео на головній сторінці',
     required: true,
     hasMany: false,
     admin: {
-      condition: (data) => data.slug === "",
+      condition: (data) => data.slug === '',
     },
-  };
-};
+  }
+}

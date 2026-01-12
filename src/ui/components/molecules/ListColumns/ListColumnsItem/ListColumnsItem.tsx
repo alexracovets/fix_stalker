@@ -1,32 +1,26 @@
-"use client";
+'use client'
 
-import { ElementsPage, Section, SectionsIcon } from "@payload-types";
-import { useState } from "react";
+import { ElementsPage, Section, SectionsIcon } from '@payload-types'
+import { useState } from 'react'
 
-import { AtomList, AtomListItem, AtomWrapper } from "@atoms";
+import { AtomList, AtomListItem, AtomWrapper } from '@atoms'
 
-import {
-  CategoryIcon,
-  AtomLink,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@atoms";
-import { cn } from "@/utils";
+import { CategoryIcon, AtomLink, AccordionItem, AccordionTrigger, AccordionContent } from '@atoms'
+import { cn } from '@/utils'
 
 interface ListColumnsItemProps {
-  section: Section;
-  idx: number;
+  section: Section
+  idx: number
 }
 
 export const ListColumnsItem = ({ section, idx }: ListColumnsItemProps) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false)
 
   return (
     <AccordionItem value={`item-${idx}`}>
       <AccordionTrigger
         variant="section_view"
-        className={cn(hovered && "border-main-yellow-border")}
+        className={cn(hovered && 'border-main-yellow-border')}
       >
         <AtomLink
           href={section.slug}
@@ -49,7 +43,7 @@ export const ListColumnsItem = ({ section, idx }: ListColumnsItemProps) => {
           <AtomList variant="column_section_view">
             {section.elements.map(
               (element: number | ElementsPage, index: number) =>
-                typeof element === "object" && (
+                typeof element === 'object' && (
                   <AtomWrapper variant="page_li_wrapper" key={index}>
                     <AtomListItem variant="column_section_view">
                       <AtomLink href={element.slug} variant="categoryList">
@@ -57,11 +51,11 @@ export const ListColumnsItem = ({ section, idx }: ListColumnsItemProps) => {
                       </AtomLink>
                     </AtomListItem>
                   </AtomWrapper>
-                )
+                ),
             )}
           </AtomList>
         )}
       </AccordionContent>
     </AccordionItem>
-  );
-};
+  )
+}

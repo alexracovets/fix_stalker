@@ -1,1 +1,1 @@
-export { Internet } from "./Internet";
+export { Internet } from './Internet'

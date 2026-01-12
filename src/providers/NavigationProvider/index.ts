@@ -1,1 +1,1 @@
-export { NavigationProvider } from "./NavigationProvider";
+export { NavigationProvider } from './NavigationProvider'

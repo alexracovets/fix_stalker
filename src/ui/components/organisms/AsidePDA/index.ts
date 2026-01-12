@@ -1,1 +1,1 @@
-export { AsidePDA } from "./AsidePDA";
+export { AsidePDA } from './AsidePDA'

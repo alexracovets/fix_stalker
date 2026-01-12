@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { Section } from "@payload-types";
+import { Section } from '@payload-types'
 
-import { ListColumnsItem } from "./ListColumnsItem";
-import { Accordion } from "@atoms";
+import { ListColumnsItem } from './ListColumnsItem'
+import { Accordion } from '@atoms'
 
 interface ListColumnsProps {
-  sections: Section[];
+  sections: Section[]
 }
 
 export const ListColumns = ({ sections }: ListColumnsProps) => {
@@ -16,20 +16,16 @@ export const ListColumns = ({ sections }: ListColumnsProps) => {
         <div className="grid grid-cols-[1fr_1fr] gap-[48px]">
           <div className="flex flex-col gap-y-[48px] h-fit">
             {sections.map((section, idx) =>
-              idx % 2 === 0 ? (
-                <ListColumnsItem section={section} idx={idx} key={idx} />
-              ) : null
+              idx % 2 === 0 ? <ListColumnsItem section={section} idx={idx} key={idx} /> : null,
             )}
           </div>
           <div className="flex flex-col gap-y-[48px] h-fit">
             {sections.map((section, idx) =>
-              idx % 2 !== 0 ? (
-                <ListColumnsItem section={section} idx={idx} key={idx} />
-              ) : null
+              idx % 2 !== 0 ? <ListColumnsItem section={section} idx={idx} key={idx} /> : null,
             )}
           </div>
         </div>
       </Accordion>
     </div>
-  );
-};
+  )
+}

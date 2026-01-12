@@ -1,1 +1,1 @@
-export { TemplateShotgun } from "./TemplateShotgun";
+export { TemplateShotgun } from './TemplateShotgun'

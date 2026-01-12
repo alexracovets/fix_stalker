@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { AtomImage } from "@atoms";
+import { AtomImage } from '@atoms'
 
 export const FooterBorder = () => {
   return (
@@ -22,21 +22,11 @@ export const FooterBorder = () => {
         />
       </div>
       <div className="absolute left-0 top-0 w-[.9rem] h-full select-none pointer-events-none">
-        <AtomImage
-          src="/layoutPDA/left_footer.jpg"
-          variant="footer_left"
-          alt="left"
-          noLoader
-        />
+        <AtomImage src="/layoutPDA/left_footer.jpg" variant="footer_left" alt="left" noLoader />
       </div>
       <div className="absolute right-0 top-0 w-[.9rem] h-full select-none pointer-events-none">
-        <AtomImage
-          src="/layoutPDA/right_footer.jpg"
-          variant="footer_right"
-          alt="right"
-          noLoader
-        />
+        <AtomImage src="/layoutPDA/right_footer.jpg" variant="footer_right" alt="right" noLoader />
       </div>
     </>
-  );
-};
+  )
+}

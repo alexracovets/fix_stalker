@@ -1,1 +1,1 @@
-export { AtomInput } from "./AtomInput";
+export { AtomInput } from './AtomInput'

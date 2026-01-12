@@ -1,1 +1,1 @@
-export { AsideElementsControl } from "./AsideElementsControl";
+export { AsideElementsControl } from './AsideElementsControl'

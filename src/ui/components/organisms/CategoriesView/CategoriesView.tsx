@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { Section } from "@payload-types";
+import { Section } from '@payload-types'
 
-import { ListColumns, ListGrid } from "@molecules";
-import { useSectionViewStore } from "@store";
+import { ListColumns, ListGrid } from '@molecules'
+import { useSectionViewStore } from '@store'
 
 interface CategoriesViewProps {
-  sections: Section[] | null | undefined;
+  sections: Section[] | null | undefined
 }
 
 export const CategoriesView = ({ sections }: CategoriesViewProps) => {
-  const { isList } = useSectionViewStore();
+  const { isList } = useSectionViewStore()
   return (
     <>
       {isList ? (
@@ -19,5 +19,5 @@ export const CategoriesView = ({ sections }: CategoriesViewProps) => {
         <ListGrid sections={sections as Section[]} />
       )}
     </>
-  );
-};
+  )
+}

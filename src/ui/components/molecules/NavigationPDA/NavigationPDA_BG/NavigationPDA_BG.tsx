@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { AtomImage, AtomWrapper } from "@atoms";
+import { AtomImage, AtomWrapper } from '@atoms'
 
 export const NavigationPDA_BG = () => {
   return (
@@ -22,5 +22,5 @@ export const NavigationPDA_BG = () => {
         />
       </AtomWrapper>
     </>
-  );
-};
+  )
+}

@@ -1,1 +1,1 @@
-export { ElementTableResistance } from "./ElementTableResistance";
+export { ElementTableResistance } from './ElementTableResistance'

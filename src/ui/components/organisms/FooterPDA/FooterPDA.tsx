@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa'
 
-import { AtomButton, AtomText, AtomWrapper } from "@atoms";
-import { FooterBorder } from "./FooterBorder";
+import { AtomButton, AtomText, AtomWrapper } from '@atoms'
+import { FooterBorder } from './FooterBorder'
 
 export const FooterPDA = () => {
   return (
@@ -40,5 +40,5 @@ export const FooterPDA = () => {
         </AtomWrapper>
       </footer>
     </AtomWrapper>
-  );
-};
+  )
+}

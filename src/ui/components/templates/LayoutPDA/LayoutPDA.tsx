@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { HeaderPDA, FooterPDA, AsidePDA, MainPDA } from "@organisms";
-import { MainPDABorder } from "./MainPDABorder";
-import { AtomWrapper } from "@atoms";
+import { HeaderPDA, FooterPDA, AsidePDA, MainPDA } from '@organisms'
+import { MainPDABorder } from './MainPDABorder'
+import { AtomWrapper } from '@atoms'
 
 export const LayoutPDA = ({ children }: React.PropsWithChildren) => {
   return (
@@ -15,5 +15,5 @@ export const LayoutPDA = ({ children }: React.PropsWithChildren) => {
       </AtomWrapper>
       <FooterPDA />
     </AtomWrapper>
-  );
-};
+  )
+}

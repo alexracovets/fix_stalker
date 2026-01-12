@@ -1,1 +1,1 @@
-export { generateMeta } from "./generateMeta";
+export { generateMeta } from './generateMeta'

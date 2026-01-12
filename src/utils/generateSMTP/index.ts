@@ -1,0 +1,1 @@
+export { generateSMTP } from './generateSMTP'

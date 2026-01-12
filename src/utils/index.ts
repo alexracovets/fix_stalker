@@ -1,2 +1,2 @@
-export { generateMeta } from "./generateMeta";
-export { cn } from "./cn";
+export { generateMeta } from './generateMeta'
+export { cn } from './cn'

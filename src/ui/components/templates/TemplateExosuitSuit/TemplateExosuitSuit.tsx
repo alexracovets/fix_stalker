@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
+import { ElementsPage, Media } from '@payload-types'
 
-import { AtomHR, AtomText, AtomWrapper, RichText, AtomImage } from "@atoms";
-import { ElementTableResistance, ElementTableDetails } from "@molecules";
+import { AtomHR, AtomText, AtomWrapper, RichText, AtomImage } from '@atoms'
+import { ElementTableResistance, ElementTableDetails } from '@molecules'
 
 interface TemplateExosuitSuitProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateExosuitSuit = ({ data }: TemplateExosuitSuitProps) => {
-  const exoData = data.exo_group;
+  const exoData = data.exo_group
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -27,17 +27,13 @@ export const TemplateExosuitSuit = ({ data }: TemplateExosuitSuitProps) => {
         <AtomWrapper variant="content_suits_wrapper_left">
           <AtomHR variant="default" />
           <RichText text={data.description} />
-          {exoData && (
-            <ElementTableResistance items={exoData.resistance} />
-          )}
+          {exoData && <ElementTableResistance items={exoData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <AtomImage image={data.image as Media} variant="element_suit" />
-          {exoData && (
-            <ElementTableDetails items={exoData.details} />
-          )}
+          {exoData && <ElementTableDetails items={exoData.details} />}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

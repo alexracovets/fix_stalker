@@ -1,1 +1,1 @@
-export { AutomaticFields } from "./AutomaticFields";
+export { AutomaticFields } from './AutomaticFields'

@@ -1,177 +1,177 @@
-import { type Field, SanitizedConfig, getPayload } from "payload";
-import { config } from "node:process";
+import { type Field, SanitizedConfig, getPayload } from 'payload'
+import { config } from 'node:process'
 
 export const TacticalKitFields = (): Field[] => {
   return [
     {
-      type: "group",
-      name: "tactical_kit_group",
-      label: "Поля для тактичного обвісу",
+      type: 'group',
+      name: 'tactical_kit_group',
+      label: 'Поля для тактичного обвісу',
       admin: {
-        condition: (data) => data.type === "tactical_kit",
+        condition: (data) => data.type === 'tactical_kit',
       },
       fields: [
         {
-          type: "row",
+          type: 'row',
           fields: [
             {
-              type: "relationship",
-              name: "author_image",
-              relationTo: "media",
-              label: "Зображення",
+              type: 'relationship',
+              name: 'author_image',
+              relationTo: 'media',
+              label: 'Зображення',
               defaultValue: async () => {
                 const authorImage = await getPayload({
                   config: config as unknown as SanitizedConfig,
-                });
+                })
                 const authorImageData = await authorImage.find({
-                  collection: "media",
+                  collection: 'media',
                   where: {
                     alt: {
-                      equals: "brush_art",
+                      equals: 'brush_art',
                     },
                   },
-                });
+                })
                 if (authorImageData.docs.length > 0) {
-                  return authorImageData.docs[0];
+                  return authorImageData.docs[0]
                 }
-                return null;
+                return null
               },
               admin: {
-                width: "30%",
-              },
-            },
-            {
-              label: "Автор дизайну",
-              name: "designer_name",
-              type: "text",
-              admin: {
-                width: "35%",
+                width: '30%',
               },
             },
             {
-              label: "Посилання",
-              name: "designer_link",
-              type: "text",
+              label: 'Автор дизайну',
+              name: 'designer_name',
+              type: 'text',
               admin: {
-                width: "35%",
+                width: '35%',
+              },
+            },
+            {
+              label: 'Посилання',
+              name: 'designer_link',
+              type: 'text',
+              admin: {
+                width: '35%',
               },
             },
           ],
         },
         {
-          name: "relation",
-          type: "relationship",
-          relationTo: "elements_pages",
+          name: 'relation',
+          type: 'relationship',
+          relationTo: 'elements_pages',
           label: "Зв'язок з елементом",
           hasMany: true,
           admin: {
-            width: "100%",
+            width: '100%',
           },
           filterOptions: {
             slug: {
-              like: "/weapons/%",
-              not_equals: ["/weapons/tactical_kit", "/weapons/ammo"],
+              like: '/weapons/%',
+              not_equals: ['/weapons/tactical_kit', '/weapons/ammo'],
             },
           },
         },
         {
-          label: "Додаткова інформація",
-          name: "details",
-          type: "array",
+          label: 'Додаткова інформація',
+          name: 'details',
+          type: 'array',
           admin: {
-            condition: (data) => data.type === "tactical_kit",
+            condition: (data) => data.type === 'tactical_kit',
           },
           labels: {
-            singular: "Показник",
-            plural: "Покази",
+            singular: 'Показник',
+            plural: 'Покази',
           },
           defaultValue: async () => {
-            const preset = [27, 13, 3];
+            const preset = [27, 13, 3]
             const detaileTable = await getPayload({
               config: config as unknown as SanitizedConfig,
-            });
+            })
             const detaileTableData = await detaileTable.find({
-              collection: "detaile_table",
+              collection: 'detaile_table',
               where: {
                 id: {
                   in: preset,
                 },
               },
-            });
-            const detailes = detaileTableData.docs;
+            })
+            const detailes = detaileTableData.docs
             return preset.map((id) => ({
               indicator: detailes.find((detail) => detail.id === id),
-              value: "0",
-            }));
+              value: '0',
+            }))
           },
           fields: [
             {
-              type: "row",
+              type: 'row',
               fields: [
                 {
-                  name: "indicator",
-                  label: "Показник",
-                  type: "relationship",
-                  relationTo: "detaile_table",
+                  name: 'indicator',
+                  label: 'Показник',
+                  type: 'relationship',
+                  relationTo: 'detaile_table',
                   required: true,
                   hasMany: false,
                   admin: {
-                    width: "50%",
+                    width: '50%',
                   },
                 },
                 {
-                  name: "value",
-                  label: "Значення",
-                  type: "text",
+                  name: 'value',
+                  label: 'Значення',
+                  type: 'text',
                   required: true,
                   admin: {
-                    width: "50%",
+                    width: '50%',
                   },
                 },
                 {
-                  name: "effect",
-                  type: "radio",
-                  label: "Ефект",
+                  name: 'effect',
+                  type: 'radio',
+                  label: 'Ефект',
                   required: true,
-                  defaultValue: "normal",
+                  defaultValue: 'normal',
                   options: [
                     {
-                      label: "Позитивний ефект",
-                      value: "positive",
+                      label: 'Позитивний ефект',
+                      value: 'positive',
                     },
                     {
-                      label: "Негативний ефект",
-                      value: "negative",
+                      label: 'Негативний ефект',
+                      value: 'negative',
                     },
                     {
-                      label: "Нейтрально",
-                      value: "normal",
+                      label: 'Нейтрально',
+                      value: 'normal',
                     },
                   ],
                 },
                 {
-                  name: "efect_power",
-                  type: "radio",
-                  label: "Сила ефекту",
+                  name: 'efect_power',
+                  type: 'radio',
+                  label: 'Сила ефекту',
                   required: true,
-                  defaultValue: "normal",
-                  dbName: "ef_pwr",
+                  defaultValue: 'normal',
+                  dbName: 'ef_pwr',
                   options: [
                     {
-                      label: "Низька",
-                      value: "low",
+                      label: 'Низька',
+                      value: 'low',
                     },
                     {
-                      label: "Середня",
-                      value: "medium",
+                      label: 'Середня',
+                      value: 'medium',
                     },
                     {
-                      label: "Висока",
-                      value: "high",
+                      label: 'Висока',
+                      value: 'high',
                     },
                     {
-                      label: "Нейтрально",
-                      value: "normal",
+                      label: 'Нейтрально',
+                      value: 'normal',
                     },
                   ],
                 },
@@ -181,5 +181,5 @@ export const TacticalKitFields = (): Field[] => {
         },
       ],
     },
-  ];
-};
+  ]
+}

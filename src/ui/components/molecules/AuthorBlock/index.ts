@@ -1,1 +1,1 @@
-export { AuthorBlock } from "./AuthorBlock";
+export { AuthorBlock } from './AuthorBlock'

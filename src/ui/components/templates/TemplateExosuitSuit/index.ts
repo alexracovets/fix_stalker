@@ -1,1 +1,1 @@
-export { TemplateExosuitSuit } from "./TemplateExosuitSuit";
+export { TemplateExosuitSuit } from './TemplateExosuitSuit'

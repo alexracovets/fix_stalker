@@ -1,31 +1,31 @@
-"use client";
+'use client'
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from 'react'
 
 export const useInternet = () => {
-  const [isOnline, setIsOnline] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const [isOnline, setIsOnline] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   const handleOnline = useCallback(() => {
-    setIsOnline(true);
-  }, []);
+    setIsOnline(true)
+  }, [])
 
   const handleOffline = useCallback(() => {
-    setIsOnline(false);
-  }, []);
+    setIsOnline(false)
+  }, [])
 
   useEffect(() => {
-    setIsClient(true);
-    setIsOnline(navigator.onLine);
+    setIsClient(true)
+    setIsOnline(navigator.onLine)
 
-    window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
 
     return () => {
-      window.removeEventListener("online", handleOnline);
-      window.removeEventListener("offline", handleOffline);
-    };
-  }, [handleOnline, handleOffline]);
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
+    }
+  }, [handleOnline, handleOffline])
 
-  return isClient ? isOnline : false;
-};
+  return isClient ? isOnline : false
+}

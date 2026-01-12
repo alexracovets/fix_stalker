@@ -1,51 +1,51 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig } from 'payload'
 
 export const Video: CollectionConfig = {
-  slug: "video",
+  slug: 'video',
   labels: {
-    singular: "Відео",
-    plural: "Відео",
+    singular: 'Відео',
+    plural: 'Відео',
   },
   access: {
     read: () => true,
   },
   admin: {
-    useAsTitle: "alt",
-    defaultColumns: ["filename", "alt", "createdAt"],
-    group: "Медіа",
+    useAsTitle: 'alt',
+    defaultColumns: ['filename', 'alt', 'createdAt'],
+    group: 'Медіа',
   },
   fields: [
     {
-      name: "alt",
-      type: "text",
+      name: 'alt',
+      type: 'text',
       required: true,
-      label: "Альтернативний текст",
+      label: 'Альтернативний текст',
       admin: {
-        description: "Опис відео для доступності",
+        description: 'Опис відео для доступності',
       },
     },
     {
-      name: "title",
-      type: "text",
-      label: "Назва відео",
+      name: 'title',
+      type: 'text',
+      label: 'Назва відео',
     },
     {
-      name: "description",
-      type: "textarea",
-      label: "Опис відео",
+      name: 'description',
+      type: 'textarea',
+      label: 'Опис відео',
     },
   ],
   upload: {
-    staticDir: "video",
-    mimeTypes: ["video/*"],
+    staticDir: 'video',
+    mimeTypes: ['video/*'],
     imageSizes: [
       {
-        name: "thumbnail",
+        name: 'thumbnail',
         width: 400,
         height: 300,
-        crop: "center",
+        crop: 'center',
       },
     ],
-    adminThumbnail: "thumbnail",
+    adminThumbnail: 'thumbnail',
   },
-};
+}

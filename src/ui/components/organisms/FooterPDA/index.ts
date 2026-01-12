@@ -1,1 +1,1 @@
-export { FooterPDA } from "./FooterPDA";
+export { FooterPDA } from './FooterPDA'

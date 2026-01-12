@@ -1,1 +1,1 @@
-export { PistolFields } from "./PistolFields";
+export { PistolFields } from './PistolFields'

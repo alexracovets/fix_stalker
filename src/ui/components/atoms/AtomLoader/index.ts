@@ -1,1 +1,1 @@
-export { AtomLoader } from "./AtomLoader";
+export { AtomLoader } from './AtomLoader'

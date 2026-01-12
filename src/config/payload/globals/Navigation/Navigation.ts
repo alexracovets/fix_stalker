@@ -1,4 +1,5 @@
-import type { GlobalConfig } from 'payload'
+import type { FilterOptions, GlobalConfig } from 'payload'
+import type { Navigation as NavigationType } from '@payload-types'
 
 export const Navigation: GlobalConfig = {
   slug: 'navigation',
@@ -45,18 +46,21 @@ export const Navigation: GlobalConfig = {
           name: 'page',
           type: 'relationship',
           relationTo: 'mainPages',
-          filterOptions: ({ data, siblingData }: { data: any; siblingData: any }) => {
+          filterOptions: (({ data, siblingData }) => {
+            const sibling = siblingData as NavigationType['pages'][number] | undefined
+            const currentIdValue =
+              typeof sibling?.page === 'object' ? sibling.page?.id : sibling?.page
+            const currentId =
+              typeof currentIdValue === 'string' ? Number(currentIdValue) : currentIdValue
+
             const selectedPageIds =
-              data?.pages
-                ?.map((p: any) => (typeof p.page === 'object' ? p.page.id : p.page))
-                .filter(
-                  (id: string) =>
-                    id &&
-                    id !==
-                      (typeof siblingData?.page === 'object'
-                        ? (siblingData?.page as any)?.id
-                        : siblingData?.page),
-                ) || []
+              (data as NavigationType | undefined)?.pages
+                ?.map((pageItem: NavigationType['pages'][number]) => {
+                  const idValue =
+                    typeof pageItem.page === 'object' ? pageItem.page?.id : pageItem.page
+                  return typeof idValue === 'string' ? Number(idValue) : idValue
+                })
+                .filter((id): id is number => Number.isFinite(id) && id !== currentId) || []
 
             return {
               id: {
@@ -66,7 +70,7 @@ export const Navigation: GlobalConfig = {
                 not_equals: '/',
               },
             }
-          },
+          }) satisfies FilterOptions,
           label: {
             uk: 'Сторінка',
             en: 'Page',

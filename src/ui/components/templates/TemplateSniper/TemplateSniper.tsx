@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
 import {
   ElementTableResistance,
   WeaponAdditionBlock,
   ElementTableDetails,
   AuthorBlock,
-} from "@molecules";
+} from '@molecules'
 
 interface TemplateSniperProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateSniper = ({ data }: TemplateSniperProps) => {
-  const sniperData = data.sniper_group;
+  const sniperData = data.sniper_group
 
   return (
     <AtomWrapper variant="content_element">
@@ -33,20 +33,16 @@ export const TemplateSniper = ({ data }: TemplateSniperProps) => {
           <AtomHR variant="default" />
           <AtomWrapper variant="image_author_wrapper">
             <AtomImage image={data.image as Media} variant="element_pistol" />
-            {sniperData?.author_image &&
-              sniperData.designer_name &&
-              sniperData.designer_link && (
-                <AuthorBlock
-                  image={sniperData.author_image as Media}
-                  name={sniperData.designer_name}
-                  link={sniperData.designer_link}
-                />
-              )}
+            {sniperData?.author_image && sniperData.designer_name && sniperData.designer_link && (
+              <AuthorBlock
+                image={sniperData.author_image as Media}
+                name={sniperData.designer_name}
+                link={sniperData.designer_link}
+              />
+            )}
           </AtomWrapper>
           <RichText text={data.description} />
-          {sniperData && (
-            <ElementTableResistance items={sniperData.resistance} />
-          )}
+          {sniperData && <ElementTableResistance items={sniperData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <WeaponAdditionBlock tacticalKits={[]} />
@@ -56,5 +52,5 @@ export const TemplateSniper = ({ data }: TemplateSniperProps) => {
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

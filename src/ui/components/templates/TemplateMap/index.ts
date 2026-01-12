@@ -1,1 +1,1 @@
-export { TemplateMap } from "./TemplateMap";
+export { TemplateMap } from './TemplateMap'

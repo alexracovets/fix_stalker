@@ -1,1 +1,1 @@
-export { AtomText } from "./AtomText";
+export { AtomText } from './AtomText'

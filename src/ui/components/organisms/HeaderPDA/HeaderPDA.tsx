@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { HeaderPDATop } from "./HeaderPDATop";
-import { NavigationPDA } from "@molecules";
-import { AtomWrapper } from "@atoms";
+import { HeaderPDATop } from './HeaderPDATop'
+import { NavigationPDA } from '@molecules'
+import { AtomWrapper } from '@atoms'
 
 export const HeaderPDA = () => {
   return (
@@ -12,5 +12,5 @@ export const HeaderPDA = () => {
         <NavigationPDA />
       </header>
     </AtomWrapper>
-  );
-};
+  )
+}

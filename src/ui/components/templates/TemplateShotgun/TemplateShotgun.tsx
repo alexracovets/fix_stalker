@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
 import {
   ElementTableResistance,
   WeaponAdditionBlock,
   ElementTableDetails,
   AuthorBlock,
-} from "@molecules";
+} from '@molecules'
 
 interface TemplateShotgunProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateShotgun = ({ data }: TemplateShotgunProps) => {
-  const shotgunData = data.shotgun_group;
-  const tacticalKits = shotgunData?.tactical_kits_relation?.docs;
+  const shotgunData = data.shotgun_group
+  const tacticalKits = shotgunData?.tactical_kits_relation?.docs
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -44,20 +44,15 @@ export const TemplateShotgun = ({ data }: TemplateShotgunProps) => {
               )}
           </AtomWrapper>
           <RichText text={data.description} />
-          {shotgunData && (
-            <ElementTableResistance items={shotgunData.resistance} />
-          )}
+          {shotgunData && <ElementTableResistance items={shotgunData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <WeaponAdditionBlock tacticalKits={tacticalKits as ElementsPage[]} />
           {shotgunData?.details && (
-            <ElementTableDetails
-              items={shotgunData?.details}
-              variant="pistol"
-            />
+            <ElementTableDetails items={shotgunData?.details} variant="pistol" />
           )}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

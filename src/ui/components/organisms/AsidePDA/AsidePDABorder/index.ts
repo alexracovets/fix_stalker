@@ -1,1 +1,1 @@
-export { AsidePDABorder } from "./AsidePDABorder";
+export { AsidePDABorder } from './AsidePDABorder'

@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { AtomImage } from "@atoms";
+import { AtomImage } from '@atoms'
 
 export const AsidePDABorder = () => {
   return (
@@ -12,5 +12,5 @@ export const AsidePDABorder = () => {
         noLoader
       />
     </div>
-  );
-};
+  )
+}

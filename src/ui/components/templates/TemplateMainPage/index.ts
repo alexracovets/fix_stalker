@@ -1,1 +1,1 @@
-export { TemplateMainPage } from "./TemplateMainPage";
+export { TemplateMainPage } from './TemplateMainPage'

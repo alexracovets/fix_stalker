@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 export const fragmentShader = `
     uniform sampler2D uMap;
@@ -7,4 +7,4 @@ export const fragmentShader = `
         vec4 texColor = texture2D(uMap, vUv);
         gl_FragColor = texColor;
     }
-`;
+`

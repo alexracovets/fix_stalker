@@ -1,1 +1,1 @@
-export { NavigationPDALink } from "./NavigationPDALink";
+export { NavigationPDALink } from './NavigationPDALink'

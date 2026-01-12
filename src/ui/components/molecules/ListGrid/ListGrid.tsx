@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { Section } from "@payload-types";
+import { Section } from '@payload-types'
 
-import { AtomWrapper } from "@atoms";
-import { ListGridItem } from "@molecules";
+import { AtomWrapper } from '@atoms'
+import { ListGridItem } from '@molecules'
 
 interface ListGridProps {
-  sections: Section[];
+  sections: Section[]
 }
 
 export const ListGrid = ({ sections }: ListGridProps) => {
@@ -16,5 +16,5 @@ export const ListGrid = ({ sections }: ListGridProps) => {
         <ListGridItem section={section} key={idx} />
       ))}
     </AtomWrapper>
-  );
-};
+  )
+}

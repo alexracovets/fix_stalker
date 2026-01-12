@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import { MainPage, Section } from "@payload-types";
+import { MainPage, Section } from '@payload-types'
 
-import { AtomHR, AtomText, AtomWrapper } from "@atoms";
-import { CategoriesViewSwitch } from "@molecules";
-import { CategoriesView } from "@organisms";
+import { AtomHR, AtomText, AtomWrapper } from '@atoms'
+import { CategoriesViewSwitch } from '@molecules'
+import { CategoriesView } from '@organisms'
 
 interface TemplateMainPageProps {
-  data: MainPage;
+  data: MainPage
 }
 
 export const TemplateMainPage = ({ data }: TemplateMainPageProps) => {
@@ -27,5 +27,5 @@ export const TemplateMainPage = ({ data }: TemplateMainPageProps) => {
       </AtomWrapper>
       <CategoriesView sections={data.sections as Section[]} />
     </AtomWrapper>
-  );
-};
+  )
+}

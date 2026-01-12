@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
-import { ElementTableDetails, AuthorBlock } from "@molecules";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
+import { ElementTableDetails, AuthorBlock } from '@molecules'
 
 interface TTemplateGrenadeProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateGrenade = ({ data }: TTemplateGrenadeProps) => {
-  const grenadeData = data.grenade_group;
+  const grenadeData = data.grenade_group
 
   return (
     <AtomWrapper variant="content_element">
@@ -40,13 +40,10 @@ export const TemplateGrenade = ({ data }: TTemplateGrenadeProps) => {
           </AtomWrapper>
           <RichText text={data.description} />
           {grenadeData?.details && (
-            <ElementTableDetails
-              items={grenadeData?.details}
-              variant="granade"
-            />
+            <ElementTableDetails items={grenadeData?.details} variant="granade" />
           )}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

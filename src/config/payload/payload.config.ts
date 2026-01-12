@@ -9,6 +9,7 @@ import {
   UnorderedListFeature,
 } from '@payloadcms/richtext-lexical'
 import { HorizontalRuleFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo'
@@ -116,4 +117,18 @@ export default buildConfig({
       },
     }),
   ],
+  email: nodemailerAdapter({
+    transportOptions: {
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: process.env.SMTP_USER,
+        clientId: process.env.GMAIL_CLIENT_ID,
+        clientSecret: process.env.GMAIL_CLIENT_SECRET,
+        refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+      },
+    },
+    defaultFromAddress: process.env.EMAIL_FROM as string,
+    defaultFromName: 'Stalker CMS',
+  }),
 })

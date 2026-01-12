@@ -1,1 +1,1 @@
-export { MapCanvas } from "./MapCanvas";
+export { MapCanvas } from './MapCanvas'

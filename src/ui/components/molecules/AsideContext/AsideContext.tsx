@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import { AsideSectionsControl } from "./AsideSectionsControl";
-import { AsideElementsControl } from "./AsideElementsControl";
-import { AsideSearch } from "./AsideSearch/AsideSearch";
-import { AtomHR } from "@atoms";
+import { AsideSectionsControl } from './AsideSectionsControl'
+import { AsideElementsControl } from './AsideElementsControl'
+import { AsideSearch } from './AsideSearch/AsideSearch'
+import { AtomHR } from '@atoms'
 
 export const AsideContext = () => {
   return (
@@ -13,5 +13,5 @@ export const AsideContext = () => {
       <AtomHR variant="default" />
       <AsideElementsControl />
     </>
-  );
-};
+  )
+}

@@ -1,1 +1,1 @@
-export { FooterBorder } from "./FooterBorder";
+export { FooterBorder } from './FooterBorder'

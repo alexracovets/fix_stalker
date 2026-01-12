@@ -1,1 +1,1 @@
-export { TemplateTacticalKit } from "./TemplateTacticalKit";
+export { TemplateTacticalKit } from './TemplateTacticalKit'

@@ -1,1 +1,1 @@
-export { AtomWrapper } from "./AtomWrapper";
+export { AtomWrapper } from './AtomWrapper'

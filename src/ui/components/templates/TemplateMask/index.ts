@@ -1,1 +1,1 @@
-export { TemplateMask } from "./TemplateMask";
+export { TemplateMask } from './TemplateMask'

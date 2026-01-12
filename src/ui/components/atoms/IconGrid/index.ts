@@ -1,1 +1,1 @@
-export { IconGrid } from "./IconGrid";
+export { IconGrid } from './IconGrid'

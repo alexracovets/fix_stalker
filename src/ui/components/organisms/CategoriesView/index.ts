@@ -1,1 +1,1 @@
-export { CategoriesView } from "./CategoriesView";
+export { CategoriesView } from './CategoriesView'

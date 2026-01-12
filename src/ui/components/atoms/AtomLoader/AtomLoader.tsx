@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import { AtomWrapper } from "@atoms";
+import { AtomWrapper } from '@atoms'
 
 export const AtomLoader = () => {
   return (
@@ -18,5 +18,5 @@ export const AtomLoader = () => {
         className="animate-spin"
       />
     </AtomWrapper>
-  );
-};
+  )
+}

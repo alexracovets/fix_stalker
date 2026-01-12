@@ -1,28 +1,28 @@
-import { CollectionConfig } from "payload";
+import { CollectionConfig } from 'payload'
 
 export const ResistanceTable: CollectionConfig = {
-  slug: "resistance_table",
+  slug: 'resistance_table',
   labels: {
-    singular: "Таблиця Параметрів",
-    plural: "Таблиці Параметрів",
+    singular: 'Таблиця Параметрів',
+    plural: 'Таблиці Параметрів',
   },
   admin: {
-    useAsTitle: "title",
-    group: "Додатково",
+    useAsTitle: 'title',
+    group: 'Додатково',
   },
   fields: [
     {
-      name: "image",
-      type: "relationship",
-      relationTo: "media",
-      label: "Зображення",
+      name: 'image',
+      type: 'relationship',
+      relationTo: 'media',
+      label: 'Зображення',
       required: true,
     },
     {
-      name: "title",
-      type: "text",
-      label: "Назва",
+      name: 'title',
+      type: 'text',
+      label: 'Назва',
       required: true,
     },
   ],
-};
+}

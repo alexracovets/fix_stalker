@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { ElementsPage, Section } from "@payload-types";
+import { ElementsPage, Section } from '@payload-types'
 
-import { AtomText, AtomHR, AtomWrapper } from "@atoms";
-import { ListGridItemShowCase } from "@molecules";
+import { AtomText, AtomHR, AtomWrapper } from '@atoms'
+import { ListGridItemShowCase } from '@molecules'
 
 interface TemplateSectionPageProps {
-  data: Section;
+  data: Section
 }
 
 export const TemplateSectionPage = ({ data }: TemplateSectionPageProps) => {
@@ -25,5 +25,5 @@ export const TemplateSectionPage = ({ data }: TemplateSectionPageProps) => {
       </AtomWrapper>
       <ListGridItemShowCase elements={data.elements as ElementsPage[]} />
     </AtomWrapper>
-  );
-};
+  )
+}

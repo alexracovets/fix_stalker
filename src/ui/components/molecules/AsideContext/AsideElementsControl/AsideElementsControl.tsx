@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
+import { ElementsPage, Media } from '@payload-types'
 
-import { AtomText, AtomWrapper, AtomImage, AtomLink } from "@atoms";
+import { AtomText, AtomWrapper, AtomImage, AtomLink } from '@atoms'
 
-import { useNavigation } from "@hooks";
+import { useNavigation } from '@hooks'
 
 export const AsideElementsControl = () => {
-  const { elements, activeElement } = useNavigation();
+  const { elements, activeElement } = useNavigation()
   return (
     <AtomWrapper variant="aside_elements_control_wrapper" asChild>
       <ul>
         {elements?.map((element) => {
-          const elementData = element as ElementsPage;
+          const elementData = element as ElementsPage
           return (
             <li key={elementData.id}>
               <AtomLink
@@ -21,17 +21,14 @@ export const AsideElementsControl = () => {
                 variant="aside_li"
               >
                 {elementData.aside_image && (
-                  <AtomImage
-                    image={elementData.aside_image as Media}
-                    variant="table_icon"
-                  />
+                  <AtomImage image={elementData.aside_image as Media} variant="table_icon" />
                 )}
                 <AtomText variant="aside_li">{elementData.title}</AtomText>
               </AtomLink>
             </li>
-          );
+          )
         })}
       </ul>
     </AtomWrapper>
-  );
-};
+  )
+}

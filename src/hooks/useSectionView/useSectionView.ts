@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import { useSectionViewStore } from "@store";
+import { useSectionViewStore } from '@store'
 
 export const useSectionView = () => {
-  const { isList, setIsList } = useSectionViewStore();
+  const { isList, setIsList } = useSectionViewStore()
 
-  return { isList, setIsList };
-};
+  return { isList, setIsList }
+}

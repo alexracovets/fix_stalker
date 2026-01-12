@@ -1,20 +1,17 @@
-"use client";
+'use client'
 
-import { MainPage, Section, SectionsIcon } from "@payload-types";
+import { MainPage, Section, SectionsIcon } from '@payload-types'
 
-import { CategoryIcon, AtomButton, AtomWrapper } from "@atoms";
+import { CategoryIcon, AtomButton, AtomWrapper } from '@atoms'
 
-import { useNavigationStore } from "@store";
-import { useNavigation } from "@hooks";
+import { useNavigationStore } from '@store'
+import { useNavigation } from '@hooks'
 
 export const AsideSectionsControl = () => {
-  const { sections, activeSection } = useNavigation();
-  const { setSwitchedSectionAside } = useNavigationStore();
-  const nameSection = (sections?.[0]?.parent as MainPage)?.slug as
-    | "defense"
-    | "weapons"
-    | "zone";
-  if (!nameSection) return null;
+  const { sections, activeSection } = useNavigation()
+  const { setSwitchedSectionAside } = useNavigationStore()
+  const nameSection = (sections?.[0]?.parent as MainPage)?.slug as 'defense' | 'weapons' | 'zone'
+  if (!nameSection) return null
   return (
     <AtomWrapper variant="aside_control_wrapper">
       <AtomButton variant="destructive">A</AtomButton>
@@ -30,10 +27,10 @@ export const AsideSectionsControl = () => {
               wrapper_active={section === activeSection}
               onClick={() => setSwitchedSectionAside(section)}
             />
-          );
+          )
         })}
       </AtomWrapper>
       <AtomButton variant="destructive">D</AtomButton>
     </AtomWrapper>
-  );
-};
+  )
+}

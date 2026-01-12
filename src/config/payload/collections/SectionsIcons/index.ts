@@ -1,1 +1,1 @@
-export { SectionsIcons } from "./SectionsIcons";
+export { SectionsIcons } from './SectionsIcons'

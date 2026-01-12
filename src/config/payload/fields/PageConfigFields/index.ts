@@ -1,1 +1,1 @@
-export { PageConfigFields } from "./PageConfigFields";
+export { PageConfigFields } from './PageConfigFields'

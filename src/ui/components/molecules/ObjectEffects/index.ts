@@ -1,1 +1,1 @@
-export { ObjectEffects } from "./ObjectEffects";
+export { ObjectEffects } from './ObjectEffects'

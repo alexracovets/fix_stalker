@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
+import { ElementsPage, Media } from '@payload-types'
 
-import { AtomHR, AtomText, AtomWrapper, RichText, AtomImage } from "@atoms";
-import { ElementTableResistance, ElementTableDetails } from "@molecules";
+import { AtomHR, AtomText, AtomWrapper, RichText, AtomImage } from '@atoms'
+import { ElementTableResistance, ElementTableDetails } from '@molecules'
 
 interface TemplateMaskProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateMask = ({ data }: TemplateMaskProps) => {
-  const maskData = data.mask_group;
+  const maskData = data.mask_group
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -27,17 +27,13 @@ export const TemplateMask = ({ data }: TemplateMaskProps) => {
         <AtomWrapper variant="content_suits_wrapper_left">
           <AtomHR variant="default" />
           <RichText text={data.description} />
-          {maskData && (
-            <ElementTableResistance items={maskData.resistance} />
-          )}
+          {maskData && <ElementTableResistance items={maskData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <AtomImage image={data.image as Media} variant="element_suit" />
-          {maskData && (
-            <ElementTableDetails items={maskData.details} />
-          )}
+          {maskData && <ElementTableDetails items={maskData.details} />}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

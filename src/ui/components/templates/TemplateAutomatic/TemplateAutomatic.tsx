@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
 import {
   ElementTableResistance,
   WeaponAdditionBlock,
   ElementTableDetails,
   AuthorBlock,
-} from "@molecules";
+} from '@molecules'
 
 interface TemplateAutomaticProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateAutomatic = ({ data }: TemplateAutomaticProps) => {
-  const automaticData = data.automatic_group;
-  const tacticalKits = automaticData?.tactical_kits_relation?.docs;
-  console.log(data);
-  console.log(tacticalKits);
+  const automaticData = data.automatic_group
+  const tacticalKits = automaticData?.tactical_kits_relation?.docs
+  console.log(data)
+  console.log(tacticalKits)
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -46,20 +46,15 @@ export const TemplateAutomatic = ({ data }: TemplateAutomaticProps) => {
               )}
           </AtomWrapper>
           <RichText text={data.description} />
-          {automaticData && (
-            <ElementTableResistance items={automaticData.resistance} />
-          )}
+          {automaticData && <ElementTableResistance items={automaticData.resistance} />}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
           <WeaponAdditionBlock tacticalKits={tacticalKits as ElementsPage[]} />
           {automaticData?.details && (
-            <ElementTableDetails
-              items={automaticData?.details}
-              variant="pistol"
-            />
+            <ElementTableDetails items={automaticData?.details} variant="pistol" />
           )}
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

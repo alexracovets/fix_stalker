@@ -1,1 +1,1 @@
-export { MainPDABorder } from "./MainPDABorder";
+export { MainPDABorder } from './MainPDABorder'

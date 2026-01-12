@@ -1,19 +1,15 @@
-"use client";
+'use client'
 
-import { ElementsPage, Media } from "@payload-types";
-import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from "@atoms";
-import {
-  WeaponAdditionBlock,
-  ElementTableDetails,
-  AuthorBlock,
-} from "@molecules";
+import { ElementsPage, Media } from '@payload-types'
+import { AtomWrapper, AtomText, AtomHR, RichText, AtomImage } from '@atoms'
+import { WeaponAdditionBlock, ElementTableDetails, AuthorBlock } from '@molecules'
 
 interface TemplateTacticalKitProps {
-  data: ElementsPage;
+  data: ElementsPage
 }
 
 export const TemplateTacticalKit = ({ data }: TemplateTacticalKitProps) => {
-  const tacticalKitData = data.tactical_kit_group;
+  const tacticalKitData = data.tactical_kit_group
   return (
     <AtomWrapper variant="content_element">
       <AtomWrapper variant="content_header">
@@ -43,10 +39,7 @@ export const TemplateTacticalKit = ({ data }: TemplateTacticalKitProps) => {
           </AtomWrapper>
           <RichText text={data.description} />
           {tacticalKitData?.details && (
-            <ElementTableDetails
-              items={tacticalKitData?.details}
-              variant="granade"
-            />
+            <ElementTableDetails items={tacticalKitData?.details} variant="granade" />
           )}
         </AtomWrapper>
         <AtomWrapper variant="content_suits_wrapper_right">
@@ -57,5 +50,5 @@ export const TemplateTacticalKit = ({ data }: TemplateTacticalKitProps) => {
         </AtomWrapper>
       </AtomWrapper>
     </AtomWrapper>
-  );
-};
+  )
+}

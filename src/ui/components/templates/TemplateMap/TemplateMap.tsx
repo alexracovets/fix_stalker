@@ -1,9 +1,7 @@
-"use client";
+'use client'
 
-import { MapCanvas } from "@organisms";
+import { MapCanvas } from '@organisms'
 
 export const TemplateMap = () => {
-    return (
-        <MapCanvas />
-    );
-};
+  return <MapCanvas />
+}

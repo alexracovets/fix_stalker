@@ -1,1 +1,1 @@
-export { SniperFields } from "./SniperFields";
+export { SniperFields } from './SniperFields'

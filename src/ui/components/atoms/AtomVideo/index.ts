@@ -1,1 +1,1 @@
-export { AtomVideo } from "./AtomVideo";
+export { AtomVideo } from './AtomVideo'

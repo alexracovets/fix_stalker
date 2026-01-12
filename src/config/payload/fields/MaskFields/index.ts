@@ -1,1 +1,1 @@
-export { MaskFields } from "./MaskFields";
+export { MaskFields } from './MaskFields'

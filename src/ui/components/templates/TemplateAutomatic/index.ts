@@ -1,1 +1,1 @@
-export { TemplateAutomatic } from "./TemplateAutomatic";
+export { TemplateAutomatic } from './TemplateAutomatic'

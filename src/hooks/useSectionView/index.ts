@@ -1,1 +1,1 @@
-export { useSectionView } from "./useSectionView";
+export { useSectionView } from './useSectionView'

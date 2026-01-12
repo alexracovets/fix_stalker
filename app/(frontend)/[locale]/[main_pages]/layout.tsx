@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { LayoutPDA } from "@templates";
+import { LayoutPDA } from '@templates'
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return <LayoutPDA>{children}</LayoutPDA>;
+  return <LayoutPDA>{children}</LayoutPDA>
 }

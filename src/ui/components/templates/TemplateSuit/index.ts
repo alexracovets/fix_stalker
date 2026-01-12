@@ -1,1 +1,1 @@
-export { TemplateSuit } from "./TemplateSuit";
+export { TemplateSuit } from './TemplateSuit'

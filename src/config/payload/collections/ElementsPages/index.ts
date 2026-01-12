@@ -1,1 +1,1 @@
-export { ElementsPages } from "./ElementsPages";
+export { ElementsPages } from './ElementsPages'
