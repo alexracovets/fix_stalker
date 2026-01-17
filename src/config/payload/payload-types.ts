@@ -59,90 +59,88 @@ export type SupportedTimezones =
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
   | 'Pacific/Auckland'
-  | 'Pacific/Fiji'
+  | 'Pacific/Fiji';
 
 export interface Config {
   auth: {
-    users: UserAuthOperations
-  }
-  blocks: {}
+    users: UserAuthOperations;
+  };
+  blocks: {};
   collections: {
-    mainPages: MainPage
-    sections: Section
-    media: Media
-    video: Video
-    users: User
-    sections_icons: SectionsIcon
-    elements_pages: ElementsPage
-    resistance_table: ResistanceTable
-    detaile_table: DetaileTable
-    'payload-kv': PayloadKv
-    'payload-locked-documents': PayloadLockedDocument
-    'payload-preferences': PayloadPreference
-    'payload-migrations': PayloadMigration
-  }
+    mainPages: MainPage;
+    sections: Section;
+    media: Media;
+    video: Video;
+    users: User;
+    sections_icons: SectionsIcon;
+    elements_pages: ElementsPage;
+    resistance_table: ResistanceTable;
+    detaile_table: DetaileTable;
+    'payload-kv': PayloadKv;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
+  };
   collectionsJoins: {
     elements_pages: {
-      'pistol_group.tactical_kits_relation': 'elements_pages'
-      'automatic_group.tactical_kits_relation': 'elements_pages'
-      'shotgun_group.tactical_kits_relation': 'elements_pages'
-    }
-  }
+      'pistol_group.tactical_kits_relation': 'elements_pages';
+      'automatic_group.tactical_kits_relation': 'elements_pages';
+      'shotgun_group.tactical_kits_relation': 'elements_pages';
+    };
+  };
   collectionsSelect: {
-    mainPages: MainPagesSelect<false> | MainPagesSelect<true>
-    sections: SectionsSelect<false> | SectionsSelect<true>
-    media: MediaSelect<false> | MediaSelect<true>
-    video: VideoSelect<false> | VideoSelect<true>
-    users: UsersSelect<false> | UsersSelect<true>
-    sections_icons: SectionsIconsSelect<false> | SectionsIconsSelect<true>
-    elements_pages: ElementsPagesSelect<false> | ElementsPagesSelect<true>
-    resistance_table: ResistanceTableSelect<false> | ResistanceTableSelect<true>
-    detaile_table: DetaileTableSelect<false> | DetaileTableSelect<true>
-    'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>
-    'payload-locked-documents':
-      | PayloadLockedDocumentsSelect<false>
-      | PayloadLockedDocumentsSelect<true>
-    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>
-    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>
-  }
+    mainPages: MainPagesSelect<false> | MainPagesSelect<true>;
+    sections: SectionsSelect<false> | SectionsSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    video: VideoSelect<false> | VideoSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    sections_icons: SectionsIconsSelect<false> | SectionsIconsSelect<true>;
+    elements_pages: ElementsPagesSelect<false> | ElementsPagesSelect<true>;
+    resistance_table: ResistanceTableSelect<false> | ResistanceTableSelect<true>;
+    detaile_table: DetaileTableSelect<false> | DetaileTableSelect<true>;
+    'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
   db: {
-    defaultIDType: number
-  }
-  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('uk' | 'en') | ('uk' | 'en')[]
+    defaultIDType: number;
+  };
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('uk' | 'en') | ('uk' | 'en')[];
   globals: {
-    navigation: Navigation
-    'site-settings': SiteSetting
-  }
+    navigation: Navigation;
+    'site-settings': SiteSetting;
+  };
   globalsSelect: {
-    navigation: NavigationSelect<false> | NavigationSelect<true>
-    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>
-  }
-  locale: 'uk' | 'en'
+    navigation: NavigationSelect<false> | NavigationSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
+  locale: 'uk' | 'en';
   user: User & {
-    collection: 'users'
-  }
+    collection: 'users';
+  };
   jobs: {
-    tasks: unknown
-    workflows: unknown
-  }
+    tasks: unknown;
+    workflows: unknown;
+  };
 }
 export interface UserAuthOperations {
   forgotPassword: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   login: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   registerFirstUser: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   unlock: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
 }
 /**
  * Here you create pages such as Main, Protection, Weapon, etc. For the main slug, it must be "/"
@@ -151,24 +149,24 @@ export interface UserAuthOperations {
  * via the `definition` "mainPages".
  */
 export interface MainPage {
-  id: number
-  title: string
-  sub_title?: string | null
-  slug: string
-  sections?: (number | Section)[] | null
+  id: number;
+  title: string;
+  sub_title?: string | null;
+  slug: string;
+  sections?: (number | Section)[] | null;
   meta?: {
-    title?: string | null
-    description?: string | null
+    title?: string | null;
+    description?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
     image?: {
-      relationTo: 'media'
-      value: number | Media
-    } | null
-  }
-  updatedAt: string
-  createdAt: string
+      relationTo: 'media';
+      value: number | Media;
+    } | null;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * Here you create pages such as suits, masks, pistols, etc. Which will be displayed on the main pages.
@@ -177,59 +175,59 @@ export interface MainPage {
  * via the `definition` "sections".
  */
 export interface Section {
-  id: number
-  title: string
-  sub_title: string
-  icons: number | SectionsIcon
-  slug_name: string
-  slug: string
-  parent?: (number | null) | MainPage
-  elements?: (number | ElementsPage)[] | null
+  id: number;
+  title: string;
+  sub_title: string;
+  icons: number | SectionsIcon;
+  slug_name: string;
+  slug: string;
+  parent?: (number | null) | MainPage;
+  elements?: (number | ElementsPage)[] | null;
   meta?: {
-    title?: string | null
-    description?: string | null
+    title?: string | null;
+    description?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
     image?: {
-      relationTo: 'media'
-      value: number | Media
-    } | null
-  }
-  updatedAt: string
-  createdAt: string
+      relationTo: 'media';
+      value: number | Media;
+    } | null;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sections_icons".
  */
 export interface SectionsIcon {
-  id: number
-  name: string
-  icon: number | Media
-  icon_active: number | Media
-  updatedAt: string
-  createdAt: string
+  id: number;
+  name: string;
+  icon: number | Media;
+  icon_active: number | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
-  id: number
-  alt: string
-  prefix?: string | null
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
+  id: number;
+  alt: string;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * Here you create pages such as suits, masks, pistols, etc. Which will be displayed in sections.
@@ -238,7 +236,7 @@ export interface Media {
  * via the `definition` "elements_pages".
  */
 export interface ElementsPage {
-  id: number
+  id: number;
   type?:
     | (
         | 'suits'
@@ -254,953 +252,953 @@ export interface ElementsPage {
         | 'tactical_kit'
         | 'ammo'
       )
-    | null
-  aside_image: number | Media
-  image: number | Media
-  title: string
-  sub_title: string
+    | null;
+  aside_image: number | Media;
+  image: number | Media;
+  title: string;
+  sub_title: string;
   description?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   suits_group?: {
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   mask_group?: {
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   exo_group?: {
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   objects_group?: {
     effects?:
       | {
-          title: string
-          description: string
-          id?: string | null
+          title: string;
+          description: string;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   pistol_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     tactical_kits_relation?: {
-      docs?: (number | ElementsPage)[]
-      hasNextPage?: boolean
-      totalDocs?: number
-    }
+      docs?: (number | ElementsPage)[];
+      hasNextPage?: boolean;
+      totalDocs?: number;
+    };
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
+      | null;
     tactical_kits_api?:
       | {
-          [k: string]: unknown
+          [k: string]: unknown;
         }
       | unknown[]
       | string
       | number
       | boolean
-      | null
-  }
+      | null;
+  };
   automatic_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     tactical_kits_relation?: {
-      docs?: (number | ElementsPage)[]
-      hasNextPage?: boolean
-      totalDocs?: number
-    }
+      docs?: (number | ElementsPage)[];
+      hasNextPage?: boolean;
+      totalDocs?: number;
+    };
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
+      | null;
     tactical_kits_api?:
       | {
-          [k: string]: unknown
+          [k: string]: unknown;
         }
       | unknown[]
       | string
       | number
       | boolean
-      | null
-  }
+      | null;
+  };
   shotgun_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     tactical_kits_relation?: {
-      docs?: (number | ElementsPage)[]
-      hasNextPage?: boolean
-      totalDocs?: number
-    }
+      docs?: (number | ElementsPage)[];
+      hasNextPage?: boolean;
+      totalDocs?: number;
+    };
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
+      | null;
     tactical_kits_api?:
       | {
-          [k: string]: unknown
+          [k: string]: unknown;
         }
       | unknown[]
       | string
       | number
       | boolean
-      | null
-  }
+      | null;
+  };
   machine_gun_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   grenade_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   sniper_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
     resistance?:
       | {
-          indicator: number | ResistanceTable
-          value: number
-          id?: string | null
+          indicator: number | ResistanceTable;
+          value: number;
+          id?: string | null;
         }[]
-      | null
+      | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   tactical_kit_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
-    relation?: (number | ElementsPage)[] | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
+    relation?: (number | ElementsPage)[] | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   ammo_group?: {
-    author_image?: (number | null) | Media
-    designer_name?: string | null
-    designer_link?: string | null
-    relation_ammo?: (number | ElementsPage)[] | null
+    author_image?: (number | null) | Media;
+    designer_name?: string | null;
+    designer_link?: string | null;
+    relation_ammo?: (number | ElementsPage)[] | null;
     details?:
       | {
-          indicator: number | DetaileTable
-          value: string
-          effect: 'positive' | 'negative' | 'normal'
-          efect_power: 'low' | 'medium' | 'high' | 'normal'
-          id?: string | null
+          indicator: number | DetaileTable;
+          value: string;
+          effect: 'positive' | 'negative' | 'normal';
+          efect_power: 'low' | 'medium' | 'high' | 'normal';
+          id?: string | null;
         }[]
-      | null
-  }
-  slug_name: string
-  slug: string
-  parent?: (number | null) | Section
+      | null;
+  };
+  slug_name: string;
+  slug: string;
+  parent?: (number | null) | Section;
   meta?: {
-    title?: string | null
-    description?: string | null
+    title?: string | null;
+    description?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
     image?: {
-      relationTo: 'media'
-      value: number | Media
-    } | null
-  }
-  updatedAt: string
-  createdAt: string
+      relationTo: 'media';
+      value: number | Media;
+    } | null;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resistance_table".
  */
 export interface ResistanceTable {
-  id: number
-  image: number | Media
-  title: string
-  updatedAt: string
-  createdAt: string
+  id: number;
+  image: number | Media;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "detaile_table".
  */
 export interface DetaileTable {
-  id: number
-  image: number | Media
-  title: string
-  updatedAt: string
-  createdAt: string
+  id: number;
+  image: number | Media;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "video".
  */
 export interface Video {
-  id: number
+  id: number;
   /**
    * Опис відео для доступності
    */
-  alt: string
-  title?: string | null
-  description?: string | null
-  prefix?: string | null
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
+  alt: string;
+  title?: string | null;
+  description?: string | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
   sizes?: {
     thumbnail?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
-  }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: number
-  isSuperAdmin?: boolean | null
-  updatedAt: string
-  createdAt: string
-  email: string
-  resetPasswordToken?: string | null
-  resetPasswordExpiration?: string | null
-  salt?: string | null
-  hash?: string | null
-  loginAttempts?: number | null
-  lockUntil?: string | null
+  id: number;
+  isSuperAdmin?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
   sessions?:
     | {
-        id: string
-        createdAt?: string | null
-        expiresAt: string
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
       }[]
-    | null
-  password?: string | null
+    | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: number
-  key: string
+  id: number;
+  key: string;
   data:
     | {
-        [k: string]: unknown
+        [k: string]: unknown;
       }
     | unknown[]
     | string
     | number
     | boolean
-    | null
+    | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: number
+  id: number;
   document?:
     | ({
-        relationTo: 'mainPages'
-        value: number | MainPage
+        relationTo: 'mainPages';
+        value: number | MainPage;
       } | null)
     | ({
-        relationTo: 'sections'
-        value: number | Section
+        relationTo: 'sections';
+        value: number | Section;
       } | null)
     | ({
-        relationTo: 'media'
-        value: number | Media
+        relationTo: 'media';
+        value: number | Media;
       } | null)
     | ({
-        relationTo: 'video'
-        value: number | Video
+        relationTo: 'video';
+        value: number | Video;
       } | null)
     | ({
-        relationTo: 'users'
-        value: number | User
+        relationTo: 'users';
+        value: number | User;
       } | null)
     | ({
-        relationTo: 'sections_icons'
-        value: number | SectionsIcon
+        relationTo: 'sections_icons';
+        value: number | SectionsIcon;
       } | null)
     | ({
-        relationTo: 'elements_pages'
-        value: number | ElementsPage
+        relationTo: 'elements_pages';
+        value: number | ElementsPage;
       } | null)
     | ({
-        relationTo: 'resistance_table'
-        value: number | ResistanceTable
+        relationTo: 'resistance_table';
+        value: number | ResistanceTable;
       } | null)
     | ({
-        relationTo: 'detaile_table'
-        value: number | DetaileTable
-      } | null)
-  globalSlug?: string | null
+        relationTo: 'detaile_table';
+        value: number | DetaileTable;
+      } | null);
+  globalSlug?: string | null;
   user: {
-    relationTo: 'users'
-    value: number | User
-  }
-  updatedAt: string
-  createdAt: string
+    relationTo: 'users';
+    value: number | User;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number
+  id: number;
   user: {
-    relationTo: 'users'
-    value: number | User
-  }
-  key?: string | null
+    relationTo: 'users';
+    value: number | User;
+  };
+  key?: string | null;
   value?:
     | {
-        [k: string]: unknown
+        [k: string]: unknown;
       }
     | unknown[]
     | string
     | number
     | boolean
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number
-  name?: string | null
-  batch?: number | null
-  updatedAt: string
-  createdAt: string
+  id: number;
+  name?: string | null;
+  batch?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mainPages_select".
  */
 export interface MainPagesSelect<T extends boolean = true> {
-  title?: T
-  sub_title?: T
-  slug?: T
-  sections?: T
+  title?: T;
+  sub_title?: T;
+  slug?: T;
+  sections?: T;
   meta?:
     | T
     | {
-        title?: T
-        description?: T
-        image?: T
-      }
-  updatedAt?: T
-  createdAt?: T
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sections_select".
  */
 export interface SectionsSelect<T extends boolean = true> {
-  title?: T
-  sub_title?: T
-  icons?: T
-  slug_name?: T
-  slug?: T
-  parent?: T
-  elements?: T
+  title?: T;
+  sub_title?: T;
+  icons?: T;
+  slug_name?: T;
+  slug?: T;
+  parent?: T;
+  elements?: T;
   meta?:
     | T
     | {
-        title?: T
-        description?: T
-        image?: T
-      }
-  updatedAt?: T
-  createdAt?: T
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
-  alt?: T
-  prefix?: T
-  updatedAt?: T
-  createdAt?: T
-  url?: T
-  thumbnailURL?: T
-  filename?: T
-  mimeType?: T
-  filesize?: T
-  width?: T
-  height?: T
-  focalX?: T
-  focalY?: T
+  alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "video_select".
  */
 export interface VideoSelect<T extends boolean = true> {
-  alt?: T
-  title?: T
-  description?: T
-  prefix?: T
-  updatedAt?: T
-  createdAt?: T
-  url?: T
-  thumbnailURL?: T
-  filename?: T
-  mimeType?: T
-  filesize?: T
-  width?: T
-  height?: T
-  focalX?: T
-  focalY?: T
+  alt?: T;
+  title?: T;
+  description?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
   sizes?:
     | T
     | {
         thumbnail?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
-      }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  isSuperAdmin?: T
-  updatedAt?: T
-  createdAt?: T
-  email?: T
-  resetPasswordToken?: T
-  resetPasswordExpiration?: T
-  salt?: T
-  hash?: T
-  loginAttempts?: T
-  lockUntil?: T
+  isSuperAdmin?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
   sessions?:
     | T
     | {
-        id?: T
-        createdAt?: T
-        expiresAt?: T
-      }
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sections_icons_select".
  */
 export interface SectionsIconsSelect<T extends boolean = true> {
-  name?: T
-  icon?: T
-  icon_active?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  icon?: T;
+  icon_active?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "elements_pages_select".
  */
 export interface ElementsPagesSelect<T extends boolean = true> {
-  type?: T
-  aside_image?: T
-  image?: T
-  title?: T
-  sub_title?: T
-  description?: T
+  type?: T;
+  aside_image?: T;
+  image?: T;
+  title?: T;
+  sub_title?: T;
+  description?: T;
   suits_group?:
     | T
     | {
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   mask_group?:
     | T
     | {
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   exo_group?:
     | T
     | {
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   objects_group?:
     | T
     | {
         effects?:
           | T
           | {
-              title?: T
-              description?: T
-              id?: T
-            }
+              title?: T;
+              description?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   pistol_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
-        tactical_kits_relation?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
+        tactical_kits_relation?: T;
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-        tactical_kits_api?: T
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+        tactical_kits_api?: T;
+      };
   automatic_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
-        tactical_kits_relation?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
+        tactical_kits_relation?: T;
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-        tactical_kits_api?: T
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+        tactical_kits_api?: T;
+      };
   shotgun_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
-        tactical_kits_relation?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
+        tactical_kits_relation?: T;
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-        tactical_kits_api?: T
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+        tactical_kits_api?: T;
+      };
   machine_gun_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   grenade_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   sniper_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
         resistance?:
           | T
           | {
-              indicator?: T
-              value?: T
-              id?: T
-            }
+              indicator?: T;
+              value?: T;
+              id?: T;
+            };
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   tactical_kit_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
-        relation?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
+        relation?: T;
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
   ammo_group?:
     | T
     | {
-        author_image?: T
-        designer_name?: T
-        designer_link?: T
-        relation_ammo?: T
+        author_image?: T;
+        designer_name?: T;
+        designer_link?: T;
+        relation_ammo?: T;
         details?:
           | T
           | {
-              indicator?: T
-              value?: T
-              effect?: T
-              efect_power?: T
-              id?: T
-            }
-      }
-  slug_name?: T
-  slug?: T
-  parent?: T
+              indicator?: T;
+              value?: T;
+              effect?: T;
+              efect_power?: T;
+              id?: T;
+            };
+      };
+  slug_name?: T;
+  slug?: T;
+  parent?: T;
   meta?:
     | T
     | {
-        title?: T
-        description?: T
-        image?: T
-      }
-  updatedAt?: T
-  createdAt?: T
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resistance_table_select".
  */
 export interface ResistanceTableSelect<T extends boolean = true> {
-  image?: T
-  title?: T
-  updatedAt?: T
-  createdAt?: T
+  image?: T;
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "detaile_table_select".
  */
 export interface DetaileTableSelect<T extends boolean = true> {
-  image?: T
-  title?: T
-  updatedAt?: T
-  createdAt?: T
+  image?: T;
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
-  key?: T
-  data?: T
+  key?: T;
+  data?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
-  document?: T
-  globalSlug?: T
-  user?: T
-  updatedAt?: T
-  createdAt?: T
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences_select".
  */
 export interface PayloadPreferencesSelect<T extends boolean = true> {
-  user?: T
-  key?: T
-  value?: T
-  updatedAt?: T
-  createdAt?: T
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations_select".
  */
 export interface PayloadMigrationsSelect<T extends boolean = true> {
-  name?: T
-  batch?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * Global navigation
@@ -1209,14 +1207,13 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  * via the `definition` "navigation".
  */
 export interface Navigation {
-  id: number
-  title?: string | null
+  id: number;
   pages: {
-    page: number | MainPage
-    id?: string | null
-  }[]
-  updatedAt?: string | null
-  createdAt?: string | null
+    page: number | MainPage;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * Global site settings
@@ -1225,47 +1222,46 @@ export interface Navigation {
  * via the `definition` "site-settings".
  */
 export interface SiteSetting {
-  id: number
+  id: number;
   logo: {
-    subtitle: string
-    logo: number | Media
-  }
+    subtitle: string;
+    logo: number | Media;
+  };
   home_video: {
-    video: number | Media
-  }
+    video: number | Media;
+  };
   aside: {
     aside_search: {
-      search_name: string
-      search_image: number | Media
-    }
+      search_name: string;
+      search_image: number | Media;
+    };
     aside_filter: {
-      filter_name: string
-      filter_image: number | Media
-      filter_image_active: number | Media
-    }
-  }
+      filter_name: string;
+      filter_image: number | Media;
+      filter_image_active: number | Media;
+    };
+  };
   signal: {
-    signal_name: string
-    signal_offline: string
-  }
-  updatedAt?: string | null
-  createdAt?: string | null
+    signal_name: string;
+    signal_offline: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "navigation_select".
  */
 export interface NavigationSelect<T extends boolean = true> {
-  title?: T
   pages?:
     | T
     | {
-        page?: T
-        id?: T
-      }
-  updatedAt?: T
-  createdAt?: T
-  globalType?: T
+        page?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1275,48 +1271,49 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   logo?:
     | T
     | {
-        subtitle?: T
-        logo?: T
-      }
+        subtitle?: T;
+        logo?: T;
+      };
   home_video?:
     | T
     | {
-        video?: T
-      }
+        video?: T;
+      };
   aside?:
     | T
     | {
         aside_search?:
           | T
           | {
-              search_name?: T
-              search_image?: T
-            }
+              search_name?: T;
+              search_image?: T;
+            };
         aside_filter?:
           | T
           | {
-              filter_name?: T
-              filter_image?: T
-              filter_image_active?: T
-            }
-      }
+              filter_name?: T;
+              filter_image?: T;
+              filter_image_active?: T;
+            };
+      };
   signal?:
     | T
     | {
-        signal_name?: T
-        signal_offline?: T
-      }
-  updatedAt?: T
-  createdAt?: T
-  globalType?: T
+        signal_name?: T;
+        signal_offline?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}

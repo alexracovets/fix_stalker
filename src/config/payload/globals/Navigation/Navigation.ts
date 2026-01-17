@@ -15,15 +15,6 @@ export const Navigation: GlobalConfig = {
   },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      localized: true,
-      label: {
-        uk: 'Назва',
-        en: 'Title',
-      },
-    },
-    {
       name: 'pages',
       type: 'array',
       required: true,
